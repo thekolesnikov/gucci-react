@@ -1,0 +1,31 @@
+.arrivals {
+    margin-bottom: 150px;
+}
+
+.arrivals__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.arrivals__title_text {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 100%;
+    text-transform: uppercase;
+}
+
+.arrivals__title_link {
+    color: #282828;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 130%;
+    text-decoration: underline;
+}
+
+.arrivals__items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

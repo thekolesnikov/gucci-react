@@ -1,25 +1,44 @@
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
+
+import MainLayout from './components/MainLayout/MainLayout';
+import HomePage from './components/HomePage/HomePage';
+import ShoesSection from './components/ShoesSection/ShoesSection';
+import ItemSection from './components/ItemSection/ItemSection';
+import PurchasePage from './components/PurchasePage/PurchasePage';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [shoesCatalogue, setShoesCatalogue] = useState([]);
+
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<MainLayout />}>
+                    <Route index element={<HomePage />} />
+                    <Route
+                        path="/shoes"
+                        element={
+                            <ShoesSection
+                                shoesCatalogue={shoesCatalogue}
+                                setShoesCatalogue={setShoesCatalogue}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/shoes/:id"
+                        element={
+                            <ItemSection
+                                shoesCatalogue={shoesCatalogue}
+                                setShoesCatalogue={setShoesCatalogue}
+                            />
+                        }
+                    />
+                    <Route path="/purchase" element={<PurchasePage />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;

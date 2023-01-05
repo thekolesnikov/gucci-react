@@ -1,0 +1,45 @@
+.ski__section {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.ski__left {
+    position: relative;
+}
+
+.ski__left img {
+    max-width: 1165px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ski__title {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    font-weight: 500;
+    font-size: 200px;
+    line-height: 90%;
+    color: #ffffff;
+    text-shadow: 1px solid #909090;
+}
+
+.ski__right {
+}
+
+.ski__image_small {
+    display: flex;
+    align-items: flex-end;
+}
+
+.showmore img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 131px;
+    height: 131px;
+}

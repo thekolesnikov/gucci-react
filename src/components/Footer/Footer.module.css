@@ -1,0 +1,26 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__category {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+}
+
+.footer__catagory_item {
+    text-transform: none;
+    margin-top: 10px;
+}
+
+.footer__catagory_item:nth-child(1) {
+    margin-top: 15px;
+}
+
+.footer__category_input {
+    padding: 7px 0;
+    border-bottom: 1px solid #d9d9d9;
+}

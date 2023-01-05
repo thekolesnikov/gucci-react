@@ -1,0 +1,37 @@
+.pets {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 150px;
+}
+
+.pets__images {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.pets__description {
+    max-width: 350px;
+}
+
+.pets__description_title {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.pets__description_text {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 120%;
+}
+
+.pets__description_label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

@@ -1,0 +1,90 @@
+header {
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__nav {
+    height: 50px;
+    vertical-align: baseline;
+    padding: 18px 0;
+}
+
+.header__logo {
+    font-size: 30px;
+    line-height: 36px;
+    text-transform: uppercase;
+}
+
+.header__categories {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.header__category {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+}
+
+.header__rightside {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header__submenu {
+    padding: 20px;
+    background-color: #ffffff;
+    width: 100%;
+    position: absolute;
+    z-index: 50;
+    top: 51px;
+    left: 0;
+}
+
+.header__subcategories {
+    max-width: 1560px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_title {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+}
+
+.header_subtitle {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.header__cart {
+    position: relative;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+.cart__badge {
+    position: absolute;
+    font-size: 10px;
+    top: -3px;
+    right: -3px;
+    z-index: 30px;
+    color: #ffffff;
+    background-color: cornflowerblue;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
