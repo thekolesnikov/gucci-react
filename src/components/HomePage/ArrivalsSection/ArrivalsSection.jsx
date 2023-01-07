@@ -24,22 +24,18 @@ function ArrivalsSection() {
                     <OneItem
                         img={item1}
                         name="Men's 'Gucci' bag"
-                        price="£ 2120"
+                        price="2120"
                     />
                     <OneItem
                         img={item2}
                         name="GG canvas goose down jacket"
-                        price="£ 2370"
+                        price="2370"
                     />
-                    <OneItem
-                        img={item3}
-                        name="GM 'Gucci' boots"
-                        price="£ 1770"
-                    />
+                    <OneItem img={item3} name="GM 'Gucci' boots" price="1770" />
                     <OneItem
                         img={item4}
                         name="Men's 'GGH T-Shirt"
-                        price="£ 270"
+                        price="270"
                     />
                 </div>
             </div>

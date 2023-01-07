@@ -5,6 +5,7 @@ import styles from './ItemSection.module.css';
 import arrow from '../../img/ArrowFilter.svg';
 import OneItem from '../OneItem/OneItem';
 import { useCart } from '../Context/CartProvider';
+import UniversalCartBadge from '../UniversalCartBadge/UniversalCartBadge';
 
 function ItemSection({ shoesCatalogue, setShoesCatalogue }) {
     useEffect(() => {
@@ -52,10 +53,17 @@ function ItemSection({ shoesCatalogue, setShoesCatalogue }) {
             }
             setSizeBadge(false);
             setColorBadge(false);
+            displayCartBadge();
         } else {
             sizeActive ? setSizeBadge(false) : setSizeBadge(true);
             colorActive ? setColorBadge(false) : setColorBadge(true);
         }
+    }
+
+    const [badgeActive, setBadgeActive] = useState(false);
+    function displayCartBadge() {
+        setBadgeActive(true);
+        setTimeout(() => setBadgeActive(false), 3000);
     }
 
     return (
@@ -130,7 +138,7 @@ function ItemSection({ shoesCatalogue, setShoesCatalogue }) {
                                             className={cn(
                                                 `item__cart_color_button_${item}`,
                                                 colorActive === item
-                                                    ? styles.item__cart_button_active
+                                                    ? styles.item__cart_button_active_red
                                                     : ''
                                             )}
                                         ></button>
@@ -198,6 +206,14 @@ function ItemSection({ shoesCatalogue, setShoesCatalogue }) {
                     </div>
                 </div>
             </div>
+            {badgeActive ? (
+                <UniversalCartBadge
+                    text="Item was added to Cart"
+                    color="#47c977"
+                />
+            ) : (
+                ''
+            )}
             <div className={styles.moreitem}>
                 <div className={styles.moreitem__title}>MORE shoes</div>
                 <div className={styles.moreitem__content}>

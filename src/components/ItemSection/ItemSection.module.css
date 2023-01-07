@@ -1,3 +1,11 @@
+section {
+    position: relative;
+}
+
+.none {
+    bottom: -100%;
+}
+
 .item {
     display: flex;
     justify-content: space-between;
@@ -92,6 +100,11 @@
 .item__cart_button_active {
     transform: scale(1.2);
     border: 1px solid #282828;
+}
+
+.item__cart_button_active_red {
+    transform: scale(1.2);
+    border: 1px solid red;
 }
 
 .item__cart_color {

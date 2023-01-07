@@ -22,12 +22,12 @@ function BlueSection() {
                     <OneItem
                         img={image1}
                         name="Good Game cotton sweatshirt"
-                        price="£ 1450"
+                        price="1450"
                     />
                     <OneItem
                         img={image2}
                         name="Men's Good Game Gucci Basket sneaker"
-                        price="£ 670"
+                        price="670"
                     />
                 </div>
                 <div className={styles.blue__showmore}>

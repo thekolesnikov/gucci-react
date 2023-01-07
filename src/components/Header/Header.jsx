@@ -1,20 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
 
 import CartPreview from '../CartSection/CartPreview/CartPreview';
 import HeaderSubMenu from './HeaderSubMenu';
 import favorite from './img/favorite.svg';
-import cart from './img/cart.svg';
+import cartImg from './img/cart.svg';
 import user from './img/user.svg';
 import styles from './Header.module.css';
 import { useModal } from '../Context/CartPreviewProvider';
 import { useCart } from '../Context/CartProvider';
+import {
+    addToLocalStorage,
+    getFromLocalStorage,
+} from '../../utils/LocalStorage';
 
 function Header() {
     const [subMenu, setSubMenu] = useState(false);
     const modal = useModal();
-    const cartArr = useCart();
+    const cart = useCart();
+    useEffect(() => {
+        addToLocalStorage(cart.cartArr);
+    }, [cart.cartArr]);
     return (
         <>
             <header>
@@ -140,10 +147,10 @@ function Header() {
                             }}
                             className={styles.header__cart}
                         >
-                            <img src={cart} alt="cart"></img>
-                            {cartArr.cartArr.length !== 0 && (
+                            <img src={cartImg} alt="cart"></img>
+                            {cart.cartArr.length !== 0 && (
                                 <div className={styles.cart__badge}>
-                                    {cartArr.cartArr.length}
+                                    {cart.cartArr.length}
                                 </div>
                             )}
                         </button>

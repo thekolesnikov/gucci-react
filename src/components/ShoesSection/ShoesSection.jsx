@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import styles from './ShoesSection.module.css';
 import arrow from '../../img/ArrowFilter.svg';
@@ -6,6 +7,10 @@ import arrow from '../../img/ArrowFilter.svg';
 import ShoesSectionContent from './ShoesSectionContent';
 
 function ShoesSection({ shoesCatalogue, setShoesCatalogue }) {
+    //Search params
+    const params = {};
+    const [searchParams, setSearchParams] = useSearchParams();
+
     const categories = [
         'All',
         'Driving for Men',
@@ -34,21 +39,34 @@ function ShoesSection({ shoesCatalogue, setShoesCatalogue }) {
 
     const [filterActiveCategory, setFilterActiveCategory] = useState(false);
     const [checkboxCategoryActive, setCheckboxCategoryActive] = useState([
-        'All',
+        searchParams.has('category') ? searchParams.get('category') : 'All',
     ]);
-
     const [filterActiveSize, setFilterActiveSize] = useState(false);
-    const [checkboxSizeActive, setCheckboxSizeActive] = useState(['All']);
+    const [checkboxSizeActive, setCheckboxSizeActive] = useState([
+        searchParams.has('size') ? searchParams.get('size') : 'All',
+    ]);
     const [filterActiveColors, setFilterActiveColors] = useState(false);
-    const [checkboxColorsActive, setCheckboxColorsActive] = useState(['All']);
+    const [checkboxColorsActive, setCheckboxColorsActive] = useState([
+        searchParams.has('color') ? searchParams.get('color') : 'All',
+    ]);
     const [filterActiveMaterial, setFilterActiveMaterial] = useState(false);
     const [checkboxMaterialsActive, setCheckboxMaterialsActive] = useState([
-        'All',
+        searchParams.has('material') ? searchParams.get('material') : 'All',
     ]);
 
     const [filterActiveSort, setFilterActiveSort] = useState(false);
     const [checkboxSortActive, setCheckboxSortActive] = useState([
-        { name: 'Most Popular', sort: 'rating' },
+        {
+            name:
+                searchParams.get('sortBy') == 'price'
+                    ? 'Price'
+                    : searchParams.get('sortBy') == 'new'
+                    ? 'Newest'
+                    : 'Most Popular',
+            sort: searchParams.has('sortBy')
+                ? searchParams.get('sortBy')
+                : 'rating',
+        },
     ]);
 
     useEffect(() => {
@@ -75,9 +93,26 @@ function ShoesSection({ shoesCatalogue, setShoesCatalogue }) {
             const json = await data.json();
             setShoesCatalogue(json);
         };
+
+        if (!checkboxCategoryActive.find((item) => item === 'All')) {
+            params.category = checkboxCategoryActive[0];
+        }
+        if (!checkboxSizeActive.find((item) => item === 'All')) {
+            params.size = checkboxSizeActive[0];
+        }
+        if (!checkboxColorsActive.find((item) => item === 'All')) {
+            params.color = checkboxColorsActive[0];
+        }
+        if (!checkboxMaterialsActive.find((item) => item === 'All')) {
+            params.material = checkboxMaterialsActive[0];
+        }
+
+        params.sortBy = checkboxSortActive[0].sort;
+        setSearchParams(params);
         fetchData();
     }, [
         checkboxCategoryActive,
+        checkboxSizeActive,
         checkboxSortActive,
         checkboxColorsActive,
         checkboxMaterialsActive,
@@ -339,7 +374,7 @@ function ShoesSection({ shoesCatalogue, setShoesCatalogue }) {
                         >
                             <div className={styles.section__filter_name}>
                                 Sort by:
-                                <span>{checkboxSortActive[0].name}</span>
+                                <span>{searchParams.get('sortBy')}</span>
                             </div>
                             <img
                                 src={arrow}
@@ -399,10 +434,8 @@ function ShoesSection({ shoesCatalogue, setShoesCatalogue }) {
                     </div>
                 </div>
                 <ShoesSectionContent
+                    params={params}
                     shoesCatalogue={shoesCatalogue}
-                    // filteredItemsCategory={filteredItemsCategory}
-                    // filteredItems={filteredItems}
-                    // checkboxCategoryActive={checkboxCategoryActive}
                 />
             </div>
         </main>

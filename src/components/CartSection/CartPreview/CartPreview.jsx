@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
 
@@ -8,11 +8,17 @@ import { useModal } from '../../Context/CartPreviewProvider';
 import close from './../../../img/Close.svg';
 import plus from './../../../img/plus.svg';
 import minus from './../../../img/minus.svg';
+import UniversalCartBadge from '../../UniversalCartBadge/UniversalCartBadge';
 
 function CartPreview() {
     const cart = useCart();
     const modal = useModal();
-    console.log(cart.cartArr);
+
+    const [badgeActive, setBadgeActive] = useState(false);
+    function displayCartBadge() {
+        setBadgeActive(true);
+        setTimeout(() => setBadgeActive(false), 3000);
+    }
 
     function plusQty(item) {
         cart.setCartArr(
@@ -46,8 +52,7 @@ function CartPreview() {
                         ),
                         1
                     );
-                    // setRemovedBadge(true);
-                    // setTimeout(() => setRemovedBadge(false), 2000);
+                    displayCartBadge();
                     return cart.setCartArr([...cart.cartArr]);
                 }
             });
@@ -61,25 +66,11 @@ function CartPreview() {
                     cart.cartArr.findIndex((elem) => i.arr.id === elem.arr.id),
                     1
                 );
-                // setRemovedBadge(true);
-                // setTimeout(() => setRemovedBadge(false), 2000);
+                displayCartBadge();
                 return cart.setCartArr([...cart.cartArr]);
             }
         });
     }
-
-    //Calc total prie
-    const [totalPrice, setTotalPrice] = useState(0);
-    let totalPriceArr = 0;
-
-    useEffect(() => {
-        cart.cartArr.forEach((item) => {
-            if (item.arr.hasOwnProperty('id')) {
-                totalPriceArr += item.count * item.arr.price;
-            }
-        });
-        setTotalPrice(totalPriceArr);
-    }, [cart.cartArr]);
 
     return (
         <div
@@ -194,35 +185,45 @@ function CartPreview() {
                         );
                     })}
                 </div>
-                <div className={styles.cart__total}>
-                    <div className={styles.cart__total_title}>Total</div>
-                    <div className={styles.cart__total_summ}>
-                        £ {totalPrice}
+                <div className={styles.cart__footer}>
+                    <div className={styles.cart__total}>
+                        <div className={styles.cart__total_title}>Total</div>
+                        <div className={styles.cart__total_summ}>
+                            £ {cart.totalPrice}
+                        </div>
                     </div>
-                </div>
-                <div className={styles.cart__buttons}>
-                    <button className={styles.cart__button}>
-                        <Link
+                    <div className={styles.cart__buttons}>
+                        <button className={styles.cart__button}>
+                            <Link
+                                onClick={() => {
+                                    modal.setModalActive(false);
+                                    document.body.classList.remove('hidden');
+                                }}
+                                className={styles.cart__button_pay}
+                                to="/purchase"
+                            >
+                                PAY NOW
+                            </Link>
+                        </button>
+                        <button
                             onClick={() => {
                                 modal.setModalActive(false);
                                 document.body.classList.remove('hidden');
                             }}
-                            className={styles.cart__button_pay}
-                            to="/purchase"
+                            className={styles.cart__button_continue}
                         >
-                            PAY NOW
-                        </Link>
-                    </button>
-                    <button
-                        onClick={() => {
-                            modal.setModalActive(false);
-                            document.body.classList.remove('hidden');
-                        }}
-                        className={styles.cart__button_continue}
-                    >
-                        Continue shopping
-                    </button>
+                            Continue shopping
+                        </button>
+                    </div>
                 </div>
+                {badgeActive ? (
+                    <UniversalCartBadge
+                        text="Item was removed from Cart"
+                        color="#da5353"
+                    />
+                ) : (
+                    ''
+                )}
             </div>
         </div>
     );

@@ -20,19 +20,19 @@ function Bestsellers() {
                         <OneItem
                             img={image1}
                             name="Men's 'Gucci' HA HA sneakers"
-                            price="£ 1120"
+                            price="1120"
                         />
                         <OneItem
                             img={image3}
                             name="Men's 'Gucci' HA HA cap"
-                            price="£ 120"
+                            price="120"
                         />
                     </div>
                     <div className={styles.bestsellers__items_1}>
                         <OneItem
                             img={image2}
                             name="Gucci HA HA HA check jacket"
-                            price="£ 2350"
+                            price="2350"
                         />
                     </div>
                     <Link className={styles.bestsellers__bigimg}>

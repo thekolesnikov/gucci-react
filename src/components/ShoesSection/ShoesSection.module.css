@@ -105,6 +105,7 @@
 }
 
 .showmore__button {
+    cursor: pointer;
     display: block;
     margin: 20px auto 100px;
     padding: 10px 20px;
