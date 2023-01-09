@@ -14,6 +14,7 @@ import {
     addToLocalStorage,
     getFromLocalStorage,
 } from '../../utils/LocalStorage';
+import UniversalCartBadge from '../UniversalCartBadge/UniversalCartBadge';
 
 function Header() {
     const [subMenu, setSubMenu] = useState(false);
@@ -22,6 +23,7 @@ function Header() {
     useEffect(() => {
         addToLocalStorage(cart.cartArr);
     }, [cart.cartArr]);
+
     return (
         <>
             <header>
@@ -158,6 +160,14 @@ function Header() {
                 </div>
                 <CartPreview />
             </header>
+            {cart.orderCompletedBadge ? (
+                <UniversalCartBadge
+                    text="Thanks for your order. We'are contacting you soon."
+                    color="#47c977"
+                />
+            ) : (
+                ''
+            )}
         </>
     );
 }

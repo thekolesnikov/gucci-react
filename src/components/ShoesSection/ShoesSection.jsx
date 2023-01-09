@@ -5,6 +5,7 @@ import styles from './ShoesSection.module.css';
 import arrow from '../../img/ArrowFilter.svg';
 
 import ShoesSectionContent from './ShoesSectionContent';
+import UniversalCartBadge from '../UniversalCartBadge/UniversalCartBadge';
 
 function ShoesSection({ shoesCatalogue, setShoesCatalogue }) {
     //Search params

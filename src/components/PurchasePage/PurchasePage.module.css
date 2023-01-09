@@ -1,10 +1,11 @@
-section {
+.none {
+    display: none;
 }
 
 .purchase__page {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 130px;
+    margin-bottom: 180px;
 }
 
 .purchase__details_title {
@@ -24,10 +25,38 @@ section {
     grid-row-gap: 15px;
 }
 
+.purchase__input_section {
+    position: relative;
+}
+
 .purchase__input {
     border: 1px solid rgba(0, 0, 0, 0.4);
     height: 50px;
+    width: 100%;
     padding: 15px 30px;
+}
+
+.purchase__input_error {
+    border: 1px solid rgba(255, 0, 0, 0.4);
+    height: 50px;
+    width: 100%;
+    padding: 15px 30px;
+}
+
+.cart__empty_error {
+    position: absolute;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    color: rgba(255, 0, 0, 0.8);
+}
+
+.purchase__unput_error_text {
+    position: absolute;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    color: rgba(255, 0, 0, 0.8);
 }
 
 .purchase__input::placeholder {
@@ -51,8 +80,8 @@ section {
     line-height: 130%;
     text-align: center;
     text-transform: capitalize;
-    color: #ffffff;
-    background: #282828;
+    color: #000000;
+    border: 1px solid #282828;
 }
 
 .payment__method_paypal {
@@ -64,6 +93,11 @@ section {
     text-align: center;
     color: #000000;
     border: 1px solid #282828;
+}
+
+.payment__method_active {
+    color: #ffffff;
+    background: #282828;
 }
 
 .cart__items {
@@ -195,6 +229,24 @@ section {
     background: #282828;
     border: 1px solid #282828;
     border-radius: 80px;
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.payment__button_inactive {
+    margin: 20px 0;
+    cursor: pointer;
+    padding: 15px 148px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 0.06em;
+    color: #ffffff;
+    background: #282828;
+    border: 1px solid #282828;
+    border-radius: 80px;
+    opacity: 0.5;
+    transition: all 0.3s ease;
 }
 
 .payment__checkbox {
@@ -230,4 +282,9 @@ section {
     line-height: 24px;
     text-transform: capitalize;
     color: #282828;
+}
+
+.purchase__paypal {
+    font-weight: 600;
+    font-size: 18px;
 }

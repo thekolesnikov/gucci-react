@@ -104,7 +104,7 @@ section {
 
 .item__cart_button_active_red {
     transform: scale(1.2);
-    border: 1px solid red;
+    border: 1px solid red !important;
 }
 
 .item__cart_color {

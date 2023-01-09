@@ -136,10 +136,10 @@ function ItemSection({ shoesCatalogue, setShoesCatalogue }) {
                                                 setColorBadge(false);
                                             }}
                                             className={cn(
-                                                `item__cart_color_button_${item}`,
                                                 colorActive === item
                                                     ? styles.item__cart_button_active_red
-                                                    : ''
+                                                    : '',
+                                                `item__cart_color_button_${item}`
                                             )}
                                         ></button>
                                     );

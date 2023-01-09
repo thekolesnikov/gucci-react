@@ -20,12 +20,16 @@ const CartProvider = ({ children }) => {
         setTotalPrice(totalPriceArr);
     }, [cartArr]);
 
+    const [orderCompletedBadge, setOrderCompletedBadge] = useState(false);
+
     return (
         <CartContext.Provider
             value={{
                 cartArr: cartArr,
                 setCartArr: setCartArr,
                 totalPrice: totalPrice,
+                orderCompletedBadge: orderCompletedBadge,
+                setOrderCompletedBadge: setOrderCompletedBadge,
             }}
         >
             {children}
