@@ -8,54 +8,79 @@ function Footer() {
                 <ul className={styles.footer__category}>
                     Help
                     <li className={styles.footer__catagory_item}>
-                        <Link>Shipping Services</Link>
+                        <Link to="/not-made">Shipping Services</Link>
                     </li>
                     <li className={styles.footer__catagory_item}>
-                        <Link>Contact Us</Link>
+                        <Link to="/not-made">Contact Us</Link>
                     </li>
                     <li className={styles.footer__catagory_item}>
-                        <Link>Careers</Link>
+                        <Link to="/not-made">Careers</Link>
                     </li>
                     <li className={styles.footer__catagory_item}>
-                        <Link>FAQs</Link>
+                        <Link to="/not-made">FAQs</Link>
                     </li>
                 </ul>
                 <ul className={styles.footer__category}>
                     The company
                     <li className={styles.footer__catagory_item}>
-                        <Link>About Gucci</Link>
+                        <Link to="/not-made">About Gucci</Link>
                     </li>
                     <li className={styles.footer__catagory_item}>
-                        <Link>Gucci Garden</Link>
+                        <Link to="/not-made">Gucci Garden</Link>
                     </li>
                     <li className={styles.footer__catagory_item}>
-                        <Link>Gucci Equilibrium</Link>
+                        <Link to="/not-made">Gucci Equilibrium</Link>
                     </li>
                     <li className={styles.footer__catagory_item}>
-                        <Link>Code of Ethics</Link>
+                        <Link to="/not-made">Code of Ethics</Link>
                     </li>
                 </ul>
                 <ul className={styles.footer__category}>
                     Rights
                     <li className={styles.footer__catagory_item}>
-                        <Link>Legal</Link>
+                        <Link to="/not-made">Legal</Link>
                     </li>
                     <li className={styles.footer__catagory_item}>
-                        <Link>Privacy & Cookie Policy</Link>
+                        <Link to="/not-made">Privacy & Cookie Policy</Link>
                     </li>
                     <li className={styles.footer__catagory_item}>
-                        <Link>Corporate Info</Link>
+                        <Link to="/not-made">Corporate Info</Link>
                     </li>
                     <li className={styles.footer__catagory_item}>
-                        <Link>Product Care</Link>
+                        <Link to="/not-made">Product Care</Link>
                     </li>
                 </ul>
                 <ul className={styles.footer__category}>
                     Find us on
-                    <li className={styles.footer__catagory_item}>Facebook</li>
-                    <li className={styles.footer__catagory_item}>Twitter</li>
-                    <li className={styles.footer__catagory_item}>Instagram</li>
-                    <li className={styles.footer__catagory_item}>YouTube</li>
+                    <li className={styles.footer__catagory_item}>
+                        <a
+                            target="_blank"
+                            href="https://www.facebook.com/GUCCI/"
+                        >
+                            Facebook
+                        </a>
+                    </li>
+                    <li className={styles.footer__catagory_item}>
+                        <a target="_blank" href="https://twitter.com/gucci">
+                            Twitter
+                        </a>
+                    </li>
+                    <li className={styles.footer__catagory_item}>
+                        <a
+                            target="_blank"
+                            href="https://www.instagram.com/gucci/"
+                        >
+                            Instagram
+                        </a>
+                    </li>
+                    <li className={styles.footer__catagory_item}>
+                        <a
+                            target="_blank"
+                            href="https://www.youtube.com/channel/UCo6fjlKg6GuCmEMeqYbGJng"
+                        >
+                            YouTube
+                        </a>
+                    </li>
                 </ul>
                 <ul className={styles.footer__category}>
                     Subscribe
@@ -70,7 +95,7 @@ function Footer() {
                         </form>
                     </li>
                     <li className={styles.footer__catagory_item}>
-                        <Link>Subscription options</Link>
+                        <Link to="/not-made">Subscription options</Link>
                     </li>
                 </ul>
                 <ul className={styles.footer__category}>
@@ -86,7 +111,7 @@ function Footer() {
                         </form>
                     </li>
                     <li className={styles.footer__catagory_item}>
-                        <Link>Stores map</Link>
+                        <Link to="/not-made">Stores map</Link>
                     </li>
                 </ul>
             </div>

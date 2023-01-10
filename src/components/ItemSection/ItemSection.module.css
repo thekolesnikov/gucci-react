@@ -86,7 +86,8 @@ section {
 .item__cart_size_button {
     cursor: pointer;
     background: #fff;
-    padding: 6px 4px;
+    height: 25px;
+    width: 25px;
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
@@ -95,6 +96,11 @@ section {
     color: #282828;
     border: 1px solid #e8e8e8;
     border-radius: 80px;
+    transition: all 0.3s ease;
+}
+
+.item__cart_size_button:hover {
+    border: 1px solid black;
 }
 
 .item__cart_button_active {
@@ -126,6 +132,11 @@ section {
     background: #282828;
     border: 1px solid #282828;
     border-radius: 80px;
+}
+
+.item__cart_button:hover {
+    color: #282828;
+    background-color: #ffffff;
 }
 
 .item__cart_details {

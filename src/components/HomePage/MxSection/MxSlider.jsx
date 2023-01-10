@@ -38,7 +38,7 @@ export default () => {
             slideActiveClass={'swiper-slide-active'}
         >
             <SwiperSlide className={styles.swiper__slide}>
-                <Link>
+                <Link to="/shoes/57">
                     <img className={styles.swiper__img} src={image1} alt="" />
                 </Link>
                 <div className={styles.item_description}>
@@ -49,7 +49,7 @@ export default () => {
                 </div>
             </SwiperSlide>
             <SwiperSlide className={styles.swiper__slide}>
-                <Link>
+                <Link to="/shoes/58">
                     <img className={styles.swiper__img} src={image2} alt="" />
                 </Link>
                 <div className={styles.item_description}>
@@ -60,7 +60,7 @@ export default () => {
                 </div>
             </SwiperSlide>
             <SwiperSlide className={styles.swiper__slide}>
-                <Link>
+                <Link to="/shoes/56">
                     <img className={styles.swiper__img} src={image3} alt="" />
                 </Link>
                 <div className={styles.item_description}>

@@ -19,10 +19,13 @@ function ItemSection({ shoesCatalogue, setShoesCatalogue }) {
         fetchData();
     }, []);
 
+    console.log(shoesCatalogue);
+
     const cart = useCart();
     const count = 1;
 
     const sizes = [38, 39, 40, 41, 42, 43, 44, 45];
+    const sizesCloth = ['XS', 'S', 'M', 'L', 'XL'];
     const colors = ['white', 'black', 'brown', 'green', 'orange'];
     const params = useParams();
     const arr = shoesCatalogue.find((item) => item.id == params.id);
@@ -96,25 +99,47 @@ function ItemSection({ shoesCatalogue, setShoesCatalogue }) {
                                 SELECT SIZE
                             </div>
                             <div className={styles.item__cart_size_buttons}>
-                                {sizes.map((item) => {
-                                    return (
-                                        <button
-                                            key={item}
-                                            onClick={() => {
-                                                setSizeActive(item);
-                                                setSizeBadge(false);
-                                            }}
-                                            className={cn(
-                                                styles.item__cart_size_button,
-                                                sizeActive === item
-                                                    ? styles.item__cart_button_active
-                                                    : ''
-                                            )}
-                                        >
-                                            {item}
-                                        </button>
-                                    );
-                                })}
+                                {arr
+                                    ? arr.category === 'Cloth'
+                                        ? sizesCloth.map((item) => {
+                                              return (
+                                                  <button
+                                                      key={item}
+                                                      onClick={() => {
+                                                          setSizeActive(item);
+                                                          setSizeBadge(false);
+                                                      }}
+                                                      className={cn(
+                                                          styles.item__cart_size_button,
+                                                          sizeActive === item
+                                                              ? styles.item__cart_button_active
+                                                              : ''
+                                                      )}
+                                                  >
+                                                      {item}
+                                                  </button>
+                                              );
+                                          })
+                                        : sizes.map((item) => {
+                                              return (
+                                                  <button
+                                                      key={item}
+                                                      onClick={() => {
+                                                          setSizeActive(item);
+                                                          setSizeBadge(false);
+                                                      }}
+                                                      className={cn(
+                                                          styles.item__cart_size_button,
+                                                          sizeActive === item
+                                                              ? styles.item__cart_button_active
+                                                              : ''
+                                                      )}
+                                                  >
+                                                      {item}
+                                                  </button>
+                                              );
+                                          })
+                                    : ''}
                             </div>
                             {sizeBadge && (
                                 <div className={styles.item__cart_size_badge}>

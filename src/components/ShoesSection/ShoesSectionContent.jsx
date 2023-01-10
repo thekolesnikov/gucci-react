@@ -17,6 +17,7 @@ function ShoesSectionContent({ params, shoesCatalogue }) {
             <div className={styles.section__items}>
                 <div className={styles.section__row_items}>
                     {shoesCatalogue
+                        .filter((i) => i.category !== 'Cloth')
                         .filter((elem) => elem.id <= itemQty)
                         .map((item) => {
                             return (

@@ -26,10 +26,23 @@
     font-size: 20px;
     line-height: 130%;
     text-decoration-line: underline;
+    transition: all 0.5s ease;
+}
+
+.bestsellers__link:hover {
+    transform: scale(1.05);
 }
 
 .bestsellers__items_2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.bestsellers__bigimg img {
+    transition: all 0.5s ease;
+}
+
+.bestsellers__bigimg:hover img {
+    transform: scale(1.03);
 }

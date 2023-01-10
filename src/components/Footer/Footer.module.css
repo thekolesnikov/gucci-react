@@ -11,6 +11,15 @@
     text-transform: uppercase;
 }
 
+.footer__catagory_item a {
+    transition: all 0.3 ease;
+}
+
+.footer__catagory_item:hover a {
+    text-decoration: underline;
+    transform: scale(1.03);
+}
+
 .footer__catagory_item {
     text-transform: none;
     margin-top: 10px;

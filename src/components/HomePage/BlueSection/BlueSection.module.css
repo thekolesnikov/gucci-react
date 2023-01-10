@@ -22,6 +22,11 @@
     font-size: 20px;
     line-height: 130%;
     text-decoration-line: underline;
+    transition: all 0.5s ease;
+}
+
+.blue__link:hover {
+    transform: scale(1.03);
 }
 
 .blue__images {
@@ -34,4 +39,12 @@
     position: absolute;
     bottom: 0;
     right: 0;
+}
+
+.blue__image_big img {
+    transition: all 0.5s ease;
+}
+
+.blue__image_big:hover img {
+    transform: scale(1.03);
 }

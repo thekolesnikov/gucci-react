@@ -6,6 +6,7 @@ import HomePage from './components/HomePage/HomePage';
 import ShoesSection from './components/ShoesSection/ShoesSection';
 import ItemSection from './components/ItemSection/ItemSection';
 import PurchasePage from './components/PurchasePage/PurchasePage';
+import ItemNotFound from './components/ItemNotFound/ItemNotFound';
 import './App.css';
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
                         }
                     />
                     <Route path="/purchase" element={<PurchasePage />} />
+                    <Route path="/not-made" element={<ItemNotFound />} />
                 </Route>
             </Routes>
         </BrowserRouter>

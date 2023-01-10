@@ -18,11 +18,14 @@ function GendorSection() {
         <section className="container">
             <div className={styles.gendor}>
                 <div className={styles.gendor__left}>
-                    <img
-                        className={cn(styles.gendor__img)}
-                        src={gendor === 'woman' ? female1 : male1}
-                        alt="Woman"
-                    />
+                    <Link to={gendor === 'woman' ? './shoes/61' : './shoes/56'}>
+                        <img
+                            className={cn(styles.gendor__img)}
+                            src={gendor === 'woman' ? female1 : male1}
+                            alt="Woman"
+                        />
+                    </Link>
+
                     <div className={styles.gendor__description}>
                         <div className={styles.gendor__categories}>
                             <span
@@ -119,16 +122,32 @@ function GendorSection() {
                     </div>
                 </div>
                 <div className={styles.gendor__right}>
-                    <Link className={styles.gendor__text}>View all</Link>
+                    <Link to="/not-made" className={styles.gendor__text}>
+                        View all
+                    </Link>
                     <div className={styles.gendor__images}>
-                        <img
-                            src={gendor === 'woman' ? female2 : male2}
-                            alt="Woman"
-                        />
-                        <img
-                            src={gendor === 'woman' ? female3 : male3}
-                            alt="Woman"
-                        />
+                        <Link
+                            to={
+                                gendor === 'woman' ? './shoes/61' : './shoes/56'
+                            }
+                        >
+                            <img
+                                className={styles.gendor__image}
+                                src={gendor === 'woman' ? female2 : male2}
+                                alt="Woman"
+                            />
+                        </Link>
+                        <Link
+                            to={
+                                gendor === 'woman' ? './shoes/61' : './shoes/56'
+                            }
+                        >
+                            <img
+                                className={styles.gendor__image}
+                                src={gendor === 'woman' ? female3 : male3}
+                                alt="Woman"
+                            />
+                        </Link>
                     </div>
                 </div>
             </div>

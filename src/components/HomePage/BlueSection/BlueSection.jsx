@@ -13,18 +13,22 @@ function BlueSection() {
             <div className={styles.blue}>
                 <div className={styles.blue__title}>
                     <div className={styles.blue__text}>Shop by look</div>
-                    <div className={styles.blue__link}>View all</div>
+                    <Link to="/not-made" className={styles.blue__link}>
+                        View all
+                    </Link>
                 </div>
                 <div className={styles.blue__images}>
-                    <Link className={styles.blue__image_big}>
+                    <Link to="/shoes/59" className={styles.blue__image_big}>
                         <img src={imageBig} alt="BigImage" />
                     </Link>
                     <OneItem
+                        id="59"
                         img={image1}
                         name="Good Game cotton sweatshirt"
                         price="1450"
                     />
                     <OneItem
+                        id="60"
                         img={image2}
                         name="Men's Good Game Gucci Basket sneaker"
                         price="670"

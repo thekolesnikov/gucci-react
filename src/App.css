@@ -44,6 +44,13 @@ body {
     border: 1px solid #e8e8e8;
     border-radius: 80px;
 }
+.item__cart_color_button_white:hover,
+.item__cart_color_button_black:hover,
+.item__cart_color_button_brown:hover,
+.item__cart_color_button_green:hover,
+.item__cart_color_button_orange:hover {
+    border: 1px solid red;
+}
 .item__cart_color_button_black {
     cursor: pointer;
     height: 25px;
@@ -75,4 +82,11 @@ body {
     background-color: #ff8b03;
     border: 1px solid #e8e8e8;
     border-radius: 80px;
+}
+
+@media (max-width: 640px) {
+    .container {
+        max-width: none;
+        margin: 0 20px;
+    }
 }

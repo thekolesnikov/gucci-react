@@ -21,6 +21,11 @@
     font-size: 20px;
     line-height: 130%;
     text-decoration-line: underline;
+    transition: all 0.5s ease;
+}
+
+.mx__title_link:hover {
+    transform: scale(1.03);
 }
 
 .mx__slider {
@@ -32,6 +37,11 @@
 .swiper__img {
     width: 375px;
     height: 470px;
+    transition: all 0.5s ease;
+}
+
+.swiper__img:hover {
+    transform: scale(1.03);
 }
 
 .swiper__navigation {
@@ -43,10 +53,19 @@
 .nextslide,
 .prevslide {
     cursor: pointer;
+    transition: all 0.5s ease;
 }
 
 .nextslide {
     transform: rotate(180deg);
+}
+
+.nextslide:hover {
+    transform: scale(1.1) rotate(180deg);
+}
+
+.prevslide:hover {
+    transform: scale(1.1);
 }
 
 .item_description {

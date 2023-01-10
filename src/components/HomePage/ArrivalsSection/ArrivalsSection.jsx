@@ -16,23 +16,34 @@ function ArrivalsSection() {
                     <div className={styles.arrivals__title_text}>
                         New arrivals
                     </div>
-                    <Link className={styles.arrivals__title_link}>
+                    <Link
+                        to="/not-made"
+                        className={styles.arrivals__title_link}
+                    >
                         View all
                     </Link>
                 </div>
                 <div className={styles.arrivals__items}>
                     <OneItem
+                        id="49"
                         img={item1}
                         name="Men's 'Gucci' bag"
                         price="2120"
                     />
                     <OneItem
+                        id="50"
                         img={item2}
                         name="GG canvas goose down jacket"
                         price="2370"
                     />
-                    <OneItem img={item3} name="GM 'Gucci' boots" price="1770" />
                     <OneItem
+                        id="51"
+                        img={item3}
+                        name="GM 'Gucci' boots"
+                        price="1770"
+                    />
+                    <OneItem
+                        id="52"
                         img={item4}
                         name="Men's 'GGH T-Shirt"
                         price="270"

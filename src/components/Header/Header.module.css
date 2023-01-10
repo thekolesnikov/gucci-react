@@ -14,12 +14,6 @@ header {
     padding: 18px 0;
 }
 
-.header__logo {
-    font-size: 30px;
-    line-height: 36px;
-    text-transform: uppercase;
-}
-
 .header__categories {
     display: flex;
     align-items: center;
@@ -31,6 +25,13 @@ header {
     font-size: 12px;
     line-height: 14px;
     text-transform: uppercase;
+    transform: all 0.3s ease;
+}
+
+.header__category:hover {
+    text-decoration: underline;
+    color: black;
+    transform: scale(1.15);
 }
 
 .header__rightside {
@@ -70,10 +71,25 @@ header {
     line-height: 14px;
 }
 
+.header_subtitle:hover {
+    text-decoration: underline;
+    color: black;
+    font-weight: 600;
+}
+
 .header__cart {
     position: relative;
     cursor: pointer;
     background-color: #ffffff;
+    transform: all 0.3s ease;
+}
+
+.header__cart:hover img {
+    transform: scale(1.7);
+}
+
+.header__cart:hover .cart__badge {
+    transform: scale(1.3);
 }
 
 .cart__badge {
@@ -87,4 +103,82 @@ header {
     width: 12px;
     height: 12px;
     border-radius: 50%;
+}
+
+.header__burger {
+    display: none;
+}
+
+.burger__arrow {
+    background-color: #ffffff;
+}
+
+@media (max-width: 640px) {
+    .header__nav {
+        display: none;
+    }
+
+    .header__categories {
+        display: none;
+    }
+
+    .header__categories_mobile {
+        position: fixed;
+        top: 51px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 500;
+        padding: 20px 20px;
+        transition: left 0.3s ease 0s;
+        overflow: auto;
+        background: #ffffff;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .header__category_section {
+        width: 100%;
+    }
+
+    .header__category_row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .header__category {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        text-transform: uppercase;
+        color: #282828;
+    }
+
+    .header__burger {
+        display: block;
+        background-color: #ffffff;
+    }
+
+    .header__cart img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .header__burger img {
+        width: 24px;
+        height: 24px;
+    }
+    .header__user {
+        width: 22px;
+        height: 22px;
+    }
+
+    .header__favorite {
+        display: none;
+    }
+    .arrow_rotate {
+        transform: rotate(90deg);
+    }
 }

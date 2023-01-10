@@ -14,7 +14,9 @@ function MxSection() {
             <div className={styles.mx}>
                 <div className={styles.mx__title}>
                     <p className={styles.mx__title_text}>Gucci MX</p>
-                    <Link className={styles.mx__title_link}>View all</Link>
+                    <Link to="/not-made" className={styles.mx__title_link}>
+                        View all
+                    </Link>
                 </div>
                 <Swiper />
             </div>
