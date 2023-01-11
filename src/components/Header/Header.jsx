@@ -20,6 +20,8 @@ import {
 } from '../../utils/LocalStorage';
 import UniversalCartBadge from '../UniversalCartBadge/UniversalCartBadge';
 
+export const windowInnerWidth = window.innerWidth;
+
 function Header() {
     const [subMenu, setSubMenu] = useState(false);
     const modal = useModal();
@@ -119,7 +121,10 @@ function Header() {
                             <Link
                                 onClick={() => setSubMenu(false)}
                                 to="/shoes"
-                                className={styles.header__category}
+                                className={cn(
+                                    styles.header__category,
+                                    styles.header__category_mobile
+                                )}
                             >
                                 Jewellery & Watches
                             </Link>
@@ -133,14 +138,20 @@ function Header() {
                             <Link
                                 onClick={() => setSubMenu(false)}
                                 to="/shoes"
-                                className={styles.header__category}
+                                className={cn(
+                                    styles.header__category,
+                                    styles.header__category_mobile
+                                )}
                             >
                                 Decot & Lifestyle
                             </Link>
                             <Link
                                 onClick={() => setSubMenu(false)}
                                 to="/shoes"
-                                className={styles.header__category}
+                                className={cn(
+                                    styles.header__category,
+                                    styles.header__category_mobile
+                                )}
                             >
                                 Gifts
                             </Link>
@@ -198,7 +209,12 @@ function Header() {
                         <div className={styles.header__category_section}>
                             <div className={styles.header__category_row}>
                                 <Link
-                                    onClick={() => setburgerActive(false)}
+                                    onClick={() => {
+                                        setburgerActive(false);
+                                        document.body.classList.remove(
+                                            'hidden'
+                                        );
+                                    }}
                                     to="/shoes"
                                     className={styles.header__category}
                                 >
@@ -225,9 +241,12 @@ function Header() {
                                 <div className={styles.header__subcategory}>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Exquisite Gucci
@@ -235,9 +254,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Gucci Valigeria
@@ -245,9 +267,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             The North Face X Gucci
@@ -255,9 +280,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Gucci Run
@@ -271,7 +299,12 @@ function Header() {
                         <div className={styles.header__category_section}>
                             <div className={styles.header__category_row}>
                                 <Link
-                                    onClick={() => setburgerActive(false)}
+                                    onClick={() => {
+                                        setburgerActive(false);
+                                        document.body.classList.remove(
+                                            'hidden'
+                                        );
+                                    }}
                                     to="/shoes"
                                     className={styles.header__category}
                                 >
@@ -298,9 +331,12 @@ function Header() {
                                 <div className={styles.header__subcategory}>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Messenger Bags
@@ -308,9 +344,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Carry-On Bags
@@ -318,9 +357,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Belt Bags
@@ -328,9 +370,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Small Bags
@@ -338,9 +383,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Briefcases
@@ -348,9 +396,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Pouches
@@ -358,9 +409,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Tote Bags
@@ -368,9 +422,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Duffle Bags
@@ -384,7 +441,12 @@ function Header() {
                         <div className={styles.header__category_section}>
                             <div className={styles.header__category_row}>
                                 <Link
-                                    onClick={() => setburgerActive(false)}
+                                    onClick={() => {
+                                        setburgerActive(false);
+                                        document.body.classList.remove(
+                                            'hidden'
+                                        );
+                                    }}
                                     to="/shoes"
                                     className={styles.header__category}
                                 >
@@ -411,9 +473,12 @@ function Header() {
                                 <div className={styles.header__subcategory}>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Coats
@@ -421,9 +486,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Outerwear
@@ -431,9 +499,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Leather
@@ -441,9 +512,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Jackets
@@ -451,9 +525,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Trousers & Shorts
@@ -461,9 +538,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Suits
@@ -471,9 +551,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Denim
@@ -487,7 +570,12 @@ function Header() {
                         <div className={styles.header__category_section}>
                             <div className={styles.header__category_row}>
                                 <Link
-                                    onClick={() => setburgerActive(false)}
+                                    onClick={() => {
+                                        setburgerActive(false);
+                                        document.body.classList.remove(
+                                            'hidden'
+                                        );
+                                    }}
                                     to="/shoes"
                                     className={styles.header__category}
                                 >
@@ -514,9 +602,12 @@ function Header() {
                                 <div className={styles.header__subcategory}>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Coats
@@ -524,9 +615,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Outerwear
@@ -534,9 +628,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Leather
@@ -544,9 +641,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Gucci Run
@@ -560,7 +660,12 @@ function Header() {
                         <div className={styles.header__category_section}>
                             <div className={styles.header__category_row}>
                                 <Link
-                                    onClick={() => setburgerActive(false)}
+                                    onClick={() => {
+                                        setburgerActive(false);
+                                        document.body.classList.remove(
+                                            'hidden'
+                                        );
+                                    }}
                                     to="/shoes"
                                     className={styles.header__category}
                                 >
@@ -587,9 +692,12 @@ function Header() {
                                 <div className={styles.header__subcategory}>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Suits
@@ -597,9 +705,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Trousers & Shorts
@@ -607,9 +718,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Denim
@@ -617,9 +731,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Shirts
@@ -627,9 +744,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Knitwear
@@ -637,9 +757,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Sweatshirts
@@ -653,7 +776,12 @@ function Header() {
                         <div className={styles.header__category_section}>
                             <div className={styles.header__category_row}>
                                 <Link
-                                    onClick={() => setburgerActive(false)}
+                                    onClick={() => {
+                                        setburgerActive(false);
+                                        document.body.classList.remove(
+                                            'hidden'
+                                        );
+                                    }}
                                     to="/shoes"
                                     className={styles.header__category}
                                 >
@@ -680,9 +808,12 @@ function Header() {
                                 <div className={styles.header__subcategory}>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Trainers
@@ -690,9 +821,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Loafers & Moccasins
@@ -700,9 +834,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Driver
@@ -710,9 +847,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Slippers
@@ -720,9 +860,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Slides & Sandals
@@ -730,9 +873,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Lace Up Shoes
@@ -740,9 +886,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Boots & Ankle Boots
@@ -756,7 +905,12 @@ function Header() {
                         <div className={styles.header__category_section}>
                             <div className={styles.header__category_row}>
                                 <Link
-                                    onClick={() => setburgerActive(false)}
+                                    onClick={() => {
+                                        setburgerActive(false);
+                                        document.body.classList.remove(
+                                            'hidden'
+                                        );
+                                    }}
                                     to="/shoes"
                                     className={styles.header__category}
                                 >
@@ -783,9 +937,12 @@ function Header() {
                                 <div className={styles.header__subcategory}>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Exquisite Gucci
@@ -793,9 +950,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Gucci Valigeria
@@ -803,9 +963,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             The North Face X Gucci
@@ -813,9 +976,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Gucci Run
@@ -829,7 +995,12 @@ function Header() {
                         <div className={styles.header__category_section}>
                             <div className={styles.header__category_row}>
                                 <Link
-                                    onClick={() => setburgerActive(false)}
+                                    onClick={() => {
+                                        setburgerActive(false);
+                                        document.body.classList.remove(
+                                            'hidden'
+                                        );
+                                    }}
                                     to="/shoes"
                                     className={styles.header__category}
                                 >
@@ -856,9 +1027,12 @@ function Header() {
                                 <div className={styles.header__subcategory}>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Bi-fold Wallets
@@ -866,9 +1040,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Long & Zip Around Wallets
@@ -876,9 +1053,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Money Clips
@@ -886,9 +1066,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Card Holders & Coin Cases
@@ -896,9 +1079,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Keyrings & Keycases
@@ -906,9 +1092,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Tech Accessories
@@ -922,7 +1111,12 @@ function Header() {
                         <div className={styles.header__category_section}>
                             <div className={styles.header__category_row}>
                                 <Link
-                                    onClick={() => setburgerActive(false)}
+                                    onClick={() => {
+                                        setburgerActive(false);
+                                        document.body.classList.remove(
+                                            'hidden'
+                                        );
+                                    }}
                                     to="/shoes"
                                     className={styles.header__category}
                                 >
@@ -949,9 +1143,12 @@ function Header() {
                                 <div className={styles.header__subcategory}>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Exquisite Gucci
@@ -959,9 +1156,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Gucci Valigeria
@@ -969,9 +1169,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             The North Face X Gucci
@@ -979,9 +1182,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Gucci Run
@@ -995,7 +1201,12 @@ function Header() {
                         <div className={styles.header__category_section}>
                             <div className={styles.header__category_row}>
                                 <Link
-                                    onClick={() => setburgerActive(false)}
+                                    onClick={() => {
+                                        setburgerActive(false);
+                                        document.body.classList.remove(
+                                            'hidden'
+                                        );
+                                    }}
                                     to="/shoes"
                                     className={styles.header__category}
                                 >
@@ -1022,9 +1233,12 @@ function Header() {
                                 <div className={styles.header__subcategory}>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Belts
@@ -1032,9 +1246,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Jewellery & Watches
@@ -1042,9 +1259,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Eyewear
@@ -1052,9 +1272,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Ties
@@ -1062,9 +1285,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Scarves
@@ -1072,9 +1298,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Socks
@@ -1082,9 +1311,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Hats & Gloves
@@ -1098,7 +1330,12 @@ function Header() {
                         <div className={styles.header__category_section}>
                             <div className={styles.header__category_row}>
                                 <Link
-                                    onClick={() => setburgerActive(false)}
+                                    onClick={() => {
+                                        setburgerActive(false);
+                                        document.body.classList.remove(
+                                            'hidden'
+                                        );
+                                    }}
                                     to="/shoes"
                                     className={styles.header__category}
                                 >
@@ -1125,9 +1362,12 @@ function Header() {
                                 <div className={styles.header__subcategory}>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Exquisite Gucci
@@ -1135,9 +1375,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Gucci Valigeria
@@ -1145,9 +1388,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             The North Face X Gucci
@@ -1155,9 +1401,12 @@ function Header() {
                                     </li>
                                     <li className={styles.header_subtitle}>
                                         <Link
-                                            onClick={() =>
-                                                setburgerActive(false)
-                                            }
+                                            onClick={() => {
+                                                setburgerActive(false);
+                                                document.body.classList.remove(
+                                                    'hidden'
+                                                );
+                                            }}
                                             to="/shoes"
                                         >
                                             Gucci Run

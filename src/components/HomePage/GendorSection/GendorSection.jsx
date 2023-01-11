@@ -25,7 +25,6 @@ function GendorSection() {
                             alt="Woman"
                         />
                     </Link>
-
                     <div className={styles.gendor__description}>
                         <div className={styles.gendor__categories}>
                             <span

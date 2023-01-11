@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useSubmit } from 'react-router-dom';
 
 import styles from './ShoesSection.module.css';
 import arrow from '../../img/ArrowFilter.svg';
+import close from '../Header/img/BurgerClose.svg';
 
 import ShoesSectionContent from './ShoesSectionContent';
+import { windowInnerWidth } from '../Header/Header';
 
 function ShoesSection({ shoesCatalogue, setShoesCatalogue }) {
     //Search params
@@ -138,305 +140,990 @@ function ShoesSection({ shoesCatalogue, setShoesCatalogue }) {
         }
     }
 
-    return (
-        <main className="container">
-            <div className={styles.section__title}>SHOES</div>
-            <div className={styles.section__content}>
-                <div className={styles.section__filters}>
-                    <div className={styles.section__filter_left}>
-                        <div
-                            onMouseEnter={() => setFilterActiveCategory(true)}
-                            onMouseLeave={() => setFilterActiveCategory(false)}
-                            className={styles.section__filter}
-                        >
-                            <div className={styles.section__filter_name}>
-                                Category
-                            </div>
-                            <img
-                                src={arrow}
-                                className={
-                                    filterActiveCategory
-                                        ? styles.section__filter_arrow_rotate
-                                        : styles.section__filter_arrow
-                                }
-                                alt="filter"
-                            />
-                            {filterActiveCategory && (
-                                <div
-                                    className={
-                                        styles.section__filter_categories
-                                    }
-                                >
-                                    {categories.map((item) => {
-                                        return (
-                                            <div
-                                                key={item}
-                                                className={
-                                                    styles.section__filter_category
-                                                }
-                                            >
-                                                <button
-                                                    onClick={() => {
-                                                        addFilterCategory(
-                                                            checkboxCategoryActive,
-                                                            setCheckboxCategoryActive,
-                                                            item
-                                                        );
-                                                    }}
-                                                    className={
-                                                        checkboxCategoryActive.find(
-                                                            (elem) =>
-                                                                item === elem
-                                                        )
-                                                            ? styles.section__filter_button_active
-                                                            : styles.section__filter_button
-                                                    }
-                                                ></button>
-                                                <p
-                                                    className={
-                                                        styles.section__filter_type
-                                                    }
-                                                >
-                                                    {item}
-                                                </p>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            )}
-                        </div>
-                        <div
-                            onMouseEnter={() => setFilterActiveSize(true)}
-                            onMouseLeave={() => setFilterActiveSize(false)}
-                            className={styles.section__filter}
-                        >
-                            <div className={styles.section__filter_name}>
-                                Size
-                            </div>
-                            <img
-                                src={arrow}
-                                className={styles.section__filter_arrow}
-                                alt="filter"
-                            />
-                            {filterActiveSize && (
-                                <div className={styles.section__filter_size}>
-                                    {sizes.map((item) => {
-                                        return (
-                                            <div
-                                                key={item}
-                                                className={
-                                                    styles.section__filter_category
-                                                }
-                                            >
-                                                <button
-                                                    onClick={() =>
-                                                        addFilterCategory(
-                                                            checkboxSizeActive,
-                                                            setCheckboxSizeActive,
-                                                            item
-                                                        )
-                                                    }
-                                                    className={
-                                                        checkboxSizeActive.find(
-                                                            (elem) =>
-                                                                item === elem
-                                                        )
-                                                            ? styles.section__filter_button_active
-                                                            : styles.section__filter_button
-                                                    }
-                                                ></button>
-                                                <p
-                                                    className={
-                                                        styles.section__filter_type
-                                                    }
-                                                >
-                                                    {item}
-                                                </p>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            )}
-                        </div>
-                        <div
-                            onMouseEnter={() => setFilterActiveColors(true)}
-                            onMouseLeave={() => setFilterActiveColors(false)}
-                            className={styles.section__filter}
-                        >
-                            <div className={styles.section__filter_name}>
-                                Colors
-                            </div>
-                            <img
-                                src={arrow}
-                                className={styles.section__filter_arrow}
-                                alt="filter"
-                            />
-                            {filterActiveColors && (
-                                <div className={styles.section__filter_colors}>
-                                    {colors.map((item) => {
-                                        return (
-                                            <div
-                                                key={item}
-                                                className={
-                                                    styles.section__filter_category
-                                                }
-                                            >
-                                                <button
-                                                    onClick={() =>
-                                                        addFilterCategory(
-                                                            checkboxColorsActive,
-                                                            setCheckboxColorsActive,
-                                                            item
-                                                        )
-                                                    }
-                                                    className={
-                                                        checkboxColorsActive.find(
-                                                            (elem) =>
-                                                                item === elem
-                                                        )
-                                                            ? styles.section__filter_button_active
-                                                            : styles.section__filter_button
-                                                    }
-                                                ></button>
-                                                <p
-                                                    className={
-                                                        styles.section__filter_type
-                                                    }
-                                                >
-                                                    {item}
-                                                </p>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            )}
-                        </div>
-                        <div
-                            onMouseEnter={() => setFilterActiveMaterial(true)}
-                            onMouseLeave={() => setFilterActiveMaterial(false)}
-                            className={styles.section__filter}
-                        >
-                            <div className={styles.section__filter_name}>
-                                Material
-                            </div>
-                            <img
-                                src={arrow}
-                                className={styles.section__filter_arrow}
-                                alt="filter"
-                            />
-                            {filterActiveMaterial && (
-                                <div className={styles.section__filter_colors}>
-                                    {materials.map((item) => {
-                                        return (
-                                            <div
-                                                key={item}
-                                                className={
-                                                    styles.section__filter_category
-                                                }
-                                            >
-                                                <button
-                                                    onClick={() =>
-                                                        addFilterCategory(
-                                                            checkboxMaterialsActive,
-                                                            setCheckboxMaterialsActive,
-                                                            item
-                                                        )
-                                                    }
-                                                    className={
-                                                        checkboxMaterialsActive.find(
-                                                            (elem) =>
-                                                                item === elem
-                                                        )
-                                                            ? styles.section__filter_button_active
-                                                            : styles.section__filter_button
-                                                    }
-                                                ></button>
-                                                <p
-                                                    className={
-                                                        styles.section__filter_type
-                                                    }
-                                                >
-                                                    {item}
-                                                </p>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            )}
-                        </div>
-                    </div>
+    //Filter Mobile
+    const [mobileFilterMenuActive, setMobileFilterMenuActive] = useState(false);
 
-                    <div className={styles.section__filter}>
-                        <div
-                            onMouseEnter={() => setFilterActiveSort(true)}
-                            onMouseLeave={() => setFilterActiveSort(false)}
-                            className={styles.section__filter}
-                        >
-                            <div className={styles.section__filter_name}>
-                                Sort by:
-                                <span>{searchParams.get('sortBy')}</span>
-                            </div>
-                            <img
-                                src={arrow}
-                                className={
-                                    filterActiveSort
-                                        ? styles.section__filter_arrow_rotate
-                                        : styles.section__filter_arrow
-                                }
-                                alt="filter"
-                            />
-                            {filterActiveSort && (
+    return (
+        <main>
+            <div className={styles.section__title}>SHOES</div>
+            <div className="container">
+                <div className={styles.section__content}>
+                    <div className={styles.section__filters}>
+                        <div className={styles.section__filter_left}>
+                            {windowInnerWidth <= 640 ? (
                                 <div
-                                    className={
-                                        styles.section__filter_categories
+                                    onClick={() =>
+                                        filterActiveCategory
+                                            ? setFilterActiveCategory(false)
+                                            : setFilterActiveCategory(true)
                                     }
+                                    className={styles.section__filter}
                                 >
-                                    {sorts.map((item) => {
-                                        return (
-                                            <div
-                                                key={item.name}
-                                                className={
-                                                    styles.section__filter_category
-                                                }
-                                            >
-                                                <button
-                                                    onClick={() => {
-                                                        setCheckboxSortActive([
-                                                            {
-                                                                name: item.name,
-                                                                sort: item.sort,
-                                                            },
-                                                        ]);
-                                                    }}
-                                                    className={
-                                                        checkboxSortActive.find(
-                                                            (elem) =>
-                                                                item.name ===
-                                                                elem.name
-                                                        )
-                                                            ? styles.section__filter_button_active
-                                                            : styles.section__filter_button
-                                                    }
-                                                ></button>
-                                                <p
-                                                    className={
-                                                        styles.section__filter_type
-                                                    }
-                                                >
-                                                    {item.name}
-                                                </p>
-                                            </div>
-                                        );
-                                    })}
+                                    <div
+                                        className={styles.section__filter_name}
+                                    >
+                                        Category
+                                    </div>
+                                    <img
+                                        src={arrow}
+                                        className={
+                                            filterActiveCategory
+                                                ? styles.section__filter_arrow_rotate
+                                                : styles.section__filter_arrow
+                                        }
+                                        alt="filter"
+                                    />
+                                    {filterActiveCategory && (
+                                        <div
+                                            className={
+                                                styles.section__filter_categories
+                                            }
+                                        >
+                                            {categories.map((item) => {
+                                                return (
+                                                    <div
+                                                        key={item}
+                                                        className={
+                                                            styles.section__filter_category
+                                                        }
+                                                    >
+                                                        <button
+                                                            onClick={() => {
+                                                                addFilterCategory(
+                                                                    checkboxCategoryActive,
+                                                                    setCheckboxCategoryActive,
+                                                                    item
+                                                                );
+                                                            }}
+                                                            className={
+                                                                checkboxCategoryActive.find(
+                                                                    (elem) =>
+                                                                        item ===
+                                                                        elem
+                                                                )
+                                                                    ? styles.section__filter_button_active
+                                                                    : styles.section__filter_button
+                                                            }
+                                                        ></button>
+                                                        <p
+                                                            className={
+                                                                styles.section__filter_type
+                                                            }
+                                                        >
+                                                            {item}
+                                                        </p>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    )}
+                                </div>
+                            ) : (
+                                <div
+                                    onMouseEnter={() =>
+                                        setFilterActiveCategory(true)
+                                    }
+                                    onMouseLeave={() =>
+                                        setFilterActiveCategory(false)
+                                    }
+                                    className={styles.section__filter}
+                                >
+                                    <div
+                                        className={styles.section__filter_name}
+                                    >
+                                        Category
+                                    </div>
+                                    <img
+                                        src={arrow}
+                                        className={
+                                            filterActiveCategory
+                                                ? styles.section__filter_arrow_rotate
+                                                : styles.section__filter_arrow
+                                        }
+                                        alt="filter"
+                                    />
+                                    {filterActiveCategory && (
+                                        <div
+                                            className={
+                                                styles.section__filter_categories
+                                            }
+                                        >
+                                            {categories.map((item) => {
+                                                return (
+                                                    <div
+                                                        key={item}
+                                                        className={
+                                                            styles.section__filter_category
+                                                        }
+                                                    >
+                                                        <button
+                                                            onClick={() => {
+                                                                addFilterCategory(
+                                                                    checkboxCategoryActive,
+                                                                    setCheckboxCategoryActive,
+                                                                    item
+                                                                );
+                                                            }}
+                                                            className={
+                                                                checkboxCategoryActive.find(
+                                                                    (elem) =>
+                                                                        item ===
+                                                                        elem
+                                                                )
+                                                                    ? styles.section__filter_button_active
+                                                                    : styles.section__filter_button
+                                                            }
+                                                        ></button>
+                                                        <p
+                                                            className={
+                                                                styles.section__filter_type
+                                                            }
+                                                        >
+                                                            {item}
+                                                        </p>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+                            {windowInnerWidth <= 640 ? (
+                                <div
+                                    onClick={() =>
+                                        filterActiveSize
+                                            ? setFilterActiveSize(false)
+                                            : setFilterActiveSize(true)
+                                    }
+                                    className={styles.section__filter}
+                                >
+                                    <div
+                                        className={styles.section__filter_name}
+                                    >
+                                        Size
+                                    </div>
+                                    <img
+                                        src={arrow}
+                                        className={styles.section__filter_arrow}
+                                        alt="filter"
+                                    />
+                                    {filterActiveSize && (
+                                        <div
+                                            className={
+                                                styles.section__filter_size
+                                            }
+                                        >
+                                            {sizes.map((item) => {
+                                                return (
+                                                    <div
+                                                        key={item}
+                                                        className={
+                                                            styles.section__filter_category
+                                                        }
+                                                    >
+                                                        <button
+                                                            onClick={() =>
+                                                                addFilterCategory(
+                                                                    checkboxSizeActive,
+                                                                    setCheckboxSizeActive,
+                                                                    item
+                                                                )
+                                                            }
+                                                            className={
+                                                                checkboxSizeActive.find(
+                                                                    (elem) =>
+                                                                        item ===
+                                                                        elem
+                                                                )
+                                                                    ? styles.section__filter_button_active
+                                                                    : styles.section__filter_button
+                                                            }
+                                                        ></button>
+                                                        <p
+                                                            className={
+                                                                styles.section__filter_type
+                                                            }
+                                                        >
+                                                            {item}
+                                                        </p>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    )}
+                                </div>
+                            ) : (
+                                <div
+                                    onMouseEnter={() =>
+                                        setFilterActiveSize(true)
+                                    }
+                                    onMouseLeave={() =>
+                                        setFilterActiveSize(false)
+                                    }
+                                    className={styles.section__filter}
+                                >
+                                    <div
+                                        className={styles.section__filter_name}
+                                    >
+                                        Size
+                                    </div>
+                                    <img
+                                        src={arrow}
+                                        className={styles.section__filter_arrow}
+                                        alt="filter"
+                                    />
+                                    {filterActiveSize && (
+                                        <div
+                                            className={
+                                                styles.section__filter_size
+                                            }
+                                        >
+                                            {sizes.map((item) => {
+                                                return (
+                                                    <div
+                                                        key={item}
+                                                        className={
+                                                            styles.section__filter_category
+                                                        }
+                                                    >
+                                                        <button
+                                                            onClick={() =>
+                                                                addFilterCategory(
+                                                                    checkboxSizeActive,
+                                                                    setCheckboxSizeActive,
+                                                                    item
+                                                                )
+                                                            }
+                                                            className={
+                                                                checkboxSizeActive.find(
+                                                                    (elem) =>
+                                                                        item ===
+                                                                        elem
+                                                                )
+                                                                    ? styles.section__filter_button_active
+                                                                    : styles.section__filter_button
+                                                            }
+                                                        ></button>
+                                                        <p
+                                                            className={
+                                                                styles.section__filter_type
+                                                            }
+                                                        >
+                                                            {item}
+                                                        </p>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+                            {windowInnerWidth <= 640 ? (
+                                <div
+                                    onClick={() =>
+                                        filterActiveColors
+                                            ? setFilterActiveColors(false)
+                                            : setFilterActiveColors(true)
+                                    }
+                                    className={styles.section__filter}
+                                >
+                                    <div
+                                        className={styles.section__filter_name}
+                                    >
+                                        Colors
+                                    </div>
+                                    <img
+                                        src={arrow}
+                                        className={styles.section__filter_arrow}
+                                        alt="filter"
+                                    />
+                                    {filterActiveColors && (
+                                        <div
+                                            className={
+                                                styles.section__filter_colors
+                                            }
+                                        >
+                                            {colors.map((item) => {
+                                                return (
+                                                    <div
+                                                        key={item}
+                                                        className={
+                                                            styles.section__filter_category
+                                                        }
+                                                    >
+                                                        <button
+                                                            onClick={() =>
+                                                                addFilterCategory(
+                                                                    checkboxColorsActive,
+                                                                    setCheckboxColorsActive,
+                                                                    item
+                                                                )
+                                                            }
+                                                            className={
+                                                                checkboxColorsActive.find(
+                                                                    (elem) =>
+                                                                        item ===
+                                                                        elem
+                                                                )
+                                                                    ? styles.section__filter_button_active
+                                                                    : styles.section__filter_button
+                                                            }
+                                                        ></button>
+                                                        <p
+                                                            className={
+                                                                styles.section__filter_type
+                                                            }
+                                                        >
+                                                            {item}
+                                                        </p>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    )}
+                                </div>
+                            ) : (
+                                <div
+                                    onMouseEnter={() =>
+                                        setFilterActiveColors(true)
+                                    }
+                                    onMouseLeave={() =>
+                                        setFilterActiveColors(false)
+                                    }
+                                    className={styles.section__filter}
+                                >
+                                    <div
+                                        className={styles.section__filter_name}
+                                    >
+                                        Colors
+                                    </div>
+                                    <img
+                                        src={arrow}
+                                        className={styles.section__filter_arrow}
+                                        alt="filter"
+                                    />
+                                    {filterActiveColors && (
+                                        <div
+                                            className={
+                                                styles.section__filter_colors
+                                            }
+                                        >
+                                            {colors.map((item) => {
+                                                return (
+                                                    <div
+                                                        key={item}
+                                                        className={
+                                                            styles.section__filter_category
+                                                        }
+                                                    >
+                                                        <button
+                                                            onClick={() =>
+                                                                addFilterCategory(
+                                                                    checkboxColorsActive,
+                                                                    setCheckboxColorsActive,
+                                                                    item
+                                                                )
+                                                            }
+                                                            className={
+                                                                checkboxColorsActive.find(
+                                                                    (elem) =>
+                                                                        item ===
+                                                                        elem
+                                                                )
+                                                                    ? styles.section__filter_button_active
+                                                                    : styles.section__filter_button
+                                                            }
+                                                        ></button>
+                                                        <p
+                                                            className={
+                                                                styles.section__filter_type
+                                                            }
+                                                        >
+                                                            {item}
+                                                        </p>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+                            {windowInnerWidth <= 640 ? (
+                                <div
+                                    onClick={() =>
+                                        filterActiveMaterial
+                                            ? setFilterActiveMaterial(false)
+                                            : setFilterActiveMaterial(true)
+                                    }
+                                    className={styles.section__filter}
+                                >
+                                    <div
+                                        className={styles.section__filter_name}
+                                    >
+                                        Material
+                                    </div>
+                                    <img
+                                        src={arrow}
+                                        className={styles.section__filter_arrow}
+                                        alt="filter"
+                                    />
+                                    {filterActiveMaterial && (
+                                        <div
+                                            className={
+                                                styles.section__filter_colors
+                                            }
+                                        >
+                                            {materials.map((item) => {
+                                                return (
+                                                    <div
+                                                        key={item}
+                                                        className={
+                                                            styles.section__filter_category
+                                                        }
+                                                    >
+                                                        <button
+                                                            onClick={() =>
+                                                                addFilterCategory(
+                                                                    checkboxMaterialsActive,
+                                                                    setCheckboxMaterialsActive,
+                                                                    item
+                                                                )
+                                                            }
+                                                            className={
+                                                                checkboxMaterialsActive.find(
+                                                                    (elem) =>
+                                                                        item ===
+                                                                        elem
+                                                                )
+                                                                    ? styles.section__filter_button_active
+                                                                    : styles.section__filter_button
+                                                            }
+                                                        ></button>
+                                                        <p
+                                                            className={
+                                                                styles.section__filter_type
+                                                            }
+                                                        >
+                                                            {item}
+                                                        </p>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    )}
+                                </div>
+                            ) : (
+                                <div
+                                    onMouseEnter={() =>
+                                        setFilterActiveMaterial(true)
+                                    }
+                                    onMouseLeave={() =>
+                                        setFilterActiveMaterial(false)
+                                    }
+                                    className={styles.section__filter}
+                                >
+                                    <div
+                                        className={styles.section__filter_name}
+                                    >
+                                        Material
+                                    </div>
+                                    <img
+                                        src={arrow}
+                                        className={styles.section__filter_arrow}
+                                        alt="filter"
+                                    />
+                                    {filterActiveMaterial && (
+                                        <div
+                                            className={
+                                                styles.section__filter_colors
+                                            }
+                                        >
+                                            {materials.map((item) => {
+                                                return (
+                                                    <div
+                                                        key={item}
+                                                        className={
+                                                            styles.section__filter_category
+                                                        }
+                                                    >
+                                                        <button
+                                                            onClick={() =>
+                                                                addFilterCategory(
+                                                                    checkboxMaterialsActive,
+                                                                    setCheckboxMaterialsActive,
+                                                                    item
+                                                                )
+                                                            }
+                                                            className={
+                                                                checkboxMaterialsActive.find(
+                                                                    (elem) =>
+                                                                        item ===
+                                                                        elem
+                                                                )
+                                                                    ? styles.section__filter_button_active
+                                                                    : styles.section__filter_button
+                                                            }
+                                                        ></button>
+                                                        <p
+                                                            className={
+                                                                styles.section__filter_type
+                                                            }
+                                                        >
+                                                            {item}
+                                                        </p>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    )}
                                 </div>
                             )}
                         </div>
+                        <div className={styles.section__filter_left_mobile}>
+                            <div
+                                onClick={() => {
+                                    setMobileFilterMenuActive(true);
+                                    document.body.classList.add('hidden');
+                                }}
+                                className={styles.section__filter}
+                            >
+                                <div className={styles.section__filter_name}>
+                                    Filters
+                                </div>
+                                <img
+                                    src={arrow}
+                                    className={
+                                        filterActiveCategory
+                                            ? styles.section__filter_arrow_rotate
+                                            : styles.section__filter_arrow
+                                    }
+                                    alt="filter"
+                                />
+                            </div>
+                        </div>
+                        {mobileFilterMenuActive ? (
+                            <div
+                                onClick={() => {
+                                    setMobileFilterMenuActive(false);
+                                    document.body.classList.remove('hidden');
+                                }}
+                                className={
+                                    styles.section__filter_left_mobile_background
+                                }
+                            >
+                                <div
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                    }}
+                                    className={
+                                        styles.section__filter_left_mobile_open
+                                    }
+                                >
+                                    <div
+                                        className={
+                                            styles.section__filter_category_mobile
+                                        }
+                                    >
+                                        <div
+                                            className={
+                                                styles.section__filter_category_mobile_header
+                                            }
+                                        >
+                                            <div
+                                                className={
+                                                    styles.section__filter_category_mobile_title
+                                                }
+                                            >
+                                                Category
+                                            </div>
+                                            <button
+                                                onClick={() => {
+                                                    setMobileFilterMenuActive(
+                                                        false
+                                                    );
+                                                    document.body.classList.remove(
+                                                        'hidden'
+                                                    );
+                                                }}
+                                            >
+                                                <img src={close} alt="" />
+                                            </button>
+                                        </div>
+
+                                        <div
+                                            className={
+                                                styles.section__filter_category_mobile_body
+                                            }
+                                        >
+                                            {categories.map((item) => {
+                                                return (
+                                                    <div
+                                                        key={item}
+                                                        className={
+                                                            styles.section__filter_category
+                                                        }
+                                                    >
+                                                        <button
+                                                            onClick={() => {
+                                                                addFilterCategory(
+                                                                    checkboxCategoryActive,
+                                                                    setCheckboxCategoryActive,
+                                                                    item
+                                                                );
+                                                            }}
+                                                            className={
+                                                                checkboxCategoryActive.find(
+                                                                    (elem) =>
+                                                                        item ===
+                                                                        elem
+                                                                )
+                                                                    ? styles.section__filter_button_active
+                                                                    : styles.section__filter_button
+                                                            }
+                                                        ></button>
+                                                        <p
+                                                            className={
+                                                                styles.section__filter_type
+                                                            }
+                                                        >
+                                                            {item}
+                                                        </p>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                    <div
+                                        className={
+                                            styles.section__filter_category_mobile
+                                        }
+                                    >
+                                        <div
+                                            className={
+                                                styles.section__filter_category_mobile_title
+                                            }
+                                        >
+                                            Size
+                                        </div>
+                                        <div
+                                            className={
+                                                styles.section__filter_category_mobile_body_size
+                                            }
+                                        >
+                                            {sizes.map((item) => {
+                                                return (
+                                                    <div
+                                                        key={item}
+                                                        className={
+                                                            styles.section__filter_category
+                                                        }
+                                                    >
+                                                        <button
+                                                            onClick={() =>
+                                                                addFilterCategory(
+                                                                    checkboxSizeActive,
+                                                                    setCheckboxSizeActive,
+                                                                    item
+                                                                )
+                                                            }
+                                                            className={
+                                                                checkboxSizeActive.find(
+                                                                    (elem) =>
+                                                                        item ===
+                                                                        elem
+                                                                )
+                                                                    ? styles.section__filter_button_active
+                                                                    : styles.section__filter_button
+                                                            }
+                                                        ></button>
+                                                        <p
+                                                            className={
+                                                                styles.section__filter_type
+                                                            }
+                                                        >
+                                                            {item}
+                                                        </p>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                    <div
+                                        className={
+                                            styles.section__filter_category_mobile
+                                        }
+                                    >
+                                        <div
+                                            className={
+                                                styles.section__filter_category_mobile_title
+                                            }
+                                        >
+                                            Colors
+                                        </div>
+                                        <div
+                                            className={
+                                                styles.section__filter_category_mobile_body_colors
+                                            }
+                                        >
+                                            {colors.map((item) => {
+                                                return (
+                                                    <div
+                                                        key={item}
+                                                        className={
+                                                            styles.section__filter_category
+                                                        }
+                                                    >
+                                                        <button
+                                                            onClick={() =>
+                                                                addFilterCategory(
+                                                                    checkboxColorsActive,
+                                                                    setCheckboxColorsActive,
+                                                                    item
+                                                                )
+                                                            }
+                                                            className={
+                                                                checkboxColorsActive.find(
+                                                                    (elem) =>
+                                                                        item ===
+                                                                        elem
+                                                                )
+                                                                    ? styles.section__filter_button_active
+                                                                    : styles.section__filter_button
+                                                            }
+                                                        ></button>
+                                                        <p
+                                                            className={
+                                                                styles.section__filter_type
+                                                            }
+                                                        >
+                                                            {item}
+                                                        </p>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                    <div
+                                        className={
+                                            styles.section__filter_category_mobile
+                                        }
+                                    >
+                                        <div
+                                            className={
+                                                styles.section__filter_category_mobile_title
+                                            }
+                                        >
+                                            Material
+                                        </div>
+                                        <div
+                                            className={
+                                                styles.section__filter_category_mobile_body_colors
+                                            }
+                                        >
+                                            {materials.map((item) => {
+                                                return (
+                                                    <div
+                                                        key={item}
+                                                        className={
+                                                            styles.section__filter_category
+                                                        }
+                                                    >
+                                                        <button
+                                                            onClick={() =>
+                                                                addFilterCategory(
+                                                                    checkboxMaterialsActive,
+                                                                    setCheckboxMaterialsActive,
+                                                                    item
+                                                                )
+                                                            }
+                                                            className={
+                                                                checkboxMaterialsActive.find(
+                                                                    (elem) =>
+                                                                        item ===
+                                                                        elem
+                                                                )
+                                                                    ? styles.section__filter_button_active
+                                                                    : styles.section__filter_button
+                                                            }
+                                                        ></button>
+                                                        <p
+                                                            className={
+                                                                styles.section__filter_type
+                                                            }
+                                                        >
+                                                            {item}
+                                                        </p>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+                            ''
+                        )}
+
+                        {windowInnerWidth <= 640 ? (
+                            <div className={styles.section__filter}>
+                                <div
+                                    onClick={() =>
+                                        filterActiveSort
+                                            ? setFilterActiveSort(false)
+                                            : setFilterActiveSort(true)
+                                    }
+                                    className={styles.section__filter}
+                                >
+                                    <div
+                                        className={styles.section__filter_name}
+                                    >
+                                        Sort by:
+                                        <span>
+                                            {searchParams.get('sortBy')}
+                                        </span>
+                                    </div>
+                                    <img
+                                        src={arrow}
+                                        className={
+                                            filterActiveSort
+                                                ? styles.section__filter_arrow_rotate
+                                                : styles.section__filter_arrow
+                                        }
+                                        alt="filter"
+                                    />
+                                    {filterActiveSort && (
+                                        <div
+                                            className={
+                                                styles.section__filter_categories_sort
+                                            }
+                                        >
+                                            {sorts.map((item) => {
+                                                return (
+                                                    <div
+                                                        key={item.name}
+                                                        className={
+                                                            styles.section__filter_category
+                                                        }
+                                                    >
+                                                        <button
+                                                            onClick={() => {
+                                                                setCheckboxSortActive(
+                                                                    [
+                                                                        {
+                                                                            name: item.name,
+                                                                            sort: item.sort,
+                                                                        },
+                                                                    ]
+                                                                );
+                                                            }}
+                                                            className={
+                                                                checkboxSortActive.find(
+                                                                    (elem) =>
+                                                                        item.name ===
+                                                                        elem.name
+                                                                )
+                                                                    ? styles.section__filter_button_active
+                                                                    : styles.section__filter_button
+                                                            }
+                                                        ></button>
+                                                        <p
+                                                            className={
+                                                                styles.section__filter_type
+                                                            }
+                                                        >
+                                                            {item.name}
+                                                        </p>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        ) : (
+                            <div className={styles.section__filter}>
+                                <div
+                                    onMouseEnter={() =>
+                                        setFilterActiveSort(true)
+                                    }
+                                    onMouseLeave={() =>
+                                        setFilterActiveSort(false)
+                                    }
+                                    className={styles.section__filter}
+                                >
+                                    <div
+                                        className={styles.section__filter_name}
+                                    >
+                                        Sort by:
+                                        <span>
+                                            {searchParams.get('sortBy')}
+                                        </span>
+                                    </div>
+                                    <img
+                                        src={arrow}
+                                        className={
+                                            filterActiveSort
+                                                ? styles.section__filter_arrow_rotate
+                                                : styles.section__filter_arrow
+                                        }
+                                        alt="filter"
+                                    />
+                                    {filterActiveSort && (
+                                        <div
+                                            className={
+                                                styles.section__filter_categories_sort
+                                            }
+                                        >
+                                            {sorts.map((item) => {
+                                                return (
+                                                    <div
+                                                        key={item.name}
+                                                        className={
+                                                            styles.section__filter_category
+                                                        }
+                                                    >
+                                                        <button
+                                                            onClick={() => {
+                                                                setCheckboxSortActive(
+                                                                    [
+                                                                        {
+                                                                            name: item.name,
+                                                                            sort: item.sort,
+                                                                        },
+                                                                    ]
+                                                                );
+                                                            }}
+                                                            className={
+                                                                checkboxSortActive.find(
+                                                                    (elem) =>
+                                                                        item.name ===
+                                                                        elem.name
+                                                                )
+                                                                    ? styles.section__filter_button_active
+                                                                    : styles.section__filter_button
+                                                            }
+                                                        ></button>
+                                                        <p
+                                                            className={
+                                                                styles.section__filter_type
+                                                            }
+                                                        >
+                                                            {item.name}
+                                                        </p>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        )}
                     </div>
+                    <ShoesSectionContent
+                        params={params}
+                        shoesCatalogue={shoesCatalogue}
+                    />
                 </div>
-                <ShoesSectionContent
-                    params={params}
-                    shoesCatalogue={shoesCatalogue}
-                />
             </div>
         </main>
     );

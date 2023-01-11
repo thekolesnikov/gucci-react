@@ -19,8 +19,6 @@ function ItemSection({ shoesCatalogue, setShoesCatalogue }) {
         fetchData();
     }, []);
 
-    console.log(shoesCatalogue);
-
     const cart = useCart();
     const count = 1;
 
@@ -183,23 +181,25 @@ function ItemSection({ shoesCatalogue, setShoesCatalogue }) {
                             ADD TO CART
                         </button>
                         <div className={styles.item__cart_details}>
-                            <div className={styles.item__cart__title}>
-                                More details
+                            <div className={styles.item__cart_details_button}>
+                                <div className={styles.item__cart__title}>
+                                    More details
+                                </div>
+                                <button
+                                    onClick={() => {
+                                        detailsActive
+                                            ? setDetailsActive(false)
+                                            : setDetailsActive(true);
+                                    }}
+                                    className={
+                                        detailsActive
+                                            ? styles.item__cart_details_arrow_active
+                                            : styles.item__cart_details_arrow
+                                    }
+                                >
+                                    <img src={arrow} alt="" />
+                                </button>
                             </div>
-                            <button
-                                onClick={() => {
-                                    detailsActive
-                                        ? setDetailsActive(false)
-                                        : setDetailsActive(true);
-                                }}
-                                className={
-                                    detailsActive
-                                        ? styles.item__cart_details_arrow_active
-                                        : styles.item__cart_details_arrow
-                                }
-                            >
-                                <img src={arrow} alt="" />
-                            </button>
                             <ul
                                 className={cn(
                                     detailsActive

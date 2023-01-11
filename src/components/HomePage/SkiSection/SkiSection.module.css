@@ -28,7 +28,7 @@
     text-shadow: 1px solid #909090;
 }
 
-.ski__right {
+.ski__right img {
 }
 
 .ski__image_small {
@@ -42,4 +42,61 @@
     right: 0;
     width: 131px;
     height: 131px;
+}
+
+@media (max-width: 1640px) {
+    .ski__right {
+        display: none;
+    }
+    .showmore {
+        display: none;
+    }
+    .ski__left {
+        width: 100%;
+    }
+    .ski__left img {
+        max-width: none;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 1200px) {
+    .ski__title {
+        font-size: 140px;
+    }
+}
+
+@media (max-width: 950px) {
+    .ski__title {
+        font-size: 100px;
+    }
+}
+
+@media (max-width: 720px) {
+    .ski__title {
+        font-size: 80px;
+    }
+    .ski__section {
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 590px) {
+    .ski__title {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 410px) {
+    .ski__title {
+        font-size: 44px;
+    }
+}
+
+@media (max-width: 320px) {
+    .ski__title {
+        font-size: 36px;
+    }
 }

@@ -3,6 +3,8 @@
 }
 
 .item_link img {
+    width: 100%;
+    object-fit: cover;
     transition: all 0.5s ease;
 }
 
@@ -40,4 +42,22 @@
     font-size: 16px;
     line-height: 19px;
     color: #7a7a7a;
+    white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+    .item_name {
+        font-size: 12px;
+        line-height: 14px;
+    }
+    .item_price {
+        font-size: 12px;
+        line-height: 14px;
+        color: #909090;
+    }
+
+    .item_label {
+        font-size: 8px;
+        line-height: 10px;
+    }
 }

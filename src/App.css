@@ -83,8 +83,21 @@ body {
     border: 1px solid #e8e8e8;
     border-radius: 80px;
 }
+@media (max-width: 1640px) {
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+}
 
-@media (max-width: 640px) {
+@media (max-width: 1480px) {
+    .container {
+        max-width: 1300px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 1400px) {
     .container {
         max-width: none;
         margin: 0 20px;

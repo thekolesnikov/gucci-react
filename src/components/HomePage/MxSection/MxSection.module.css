@@ -87,3 +87,9 @@
     line-height: 19px;
     color: #7a7a7a;
 }
+
+@media (max-width: 1640px) {
+    .mx {
+        display: none;
+    }
+}
