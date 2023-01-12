@@ -22,9 +22,15 @@ function GiftsSection() {
                     <ShowMore />
                 </div>
                 <div className={styles.gifts__images}>
-                    <img src={image1} alt="gift" />
-                    <img src={image2} alt="gift" />
-                    <img src={image3} alt="gift" />
+                    <div>
+                        <img src={image1} alt="gift" />
+                    </div>
+                    <div>
+                        <img src={image2} alt="gift" />
+                    </div>
+                    <div>
+                        <img src={image3} alt="gift" />
+                    </div>
                 </div>
             </div>
         </section>

@@ -193,13 +193,12 @@ function CartPreview() {
                         </div>
                     </div>
                     <div className={styles.cart__buttons}>
-                        <button className={styles.cart__button}>
+                        <button className={styles.cart__button_pay}>
                             <Link
                                 onClick={() => {
                                     modal.setModalActive(false);
                                     document.body.classList.remove('hidden');
                                 }}
-                                className={styles.cart__button_pay}
                                 to="/purchase"
                             >
                                 PAY NOW

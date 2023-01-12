@@ -33,7 +33,7 @@
 }
 
 .cart__items {
-    flex: 1 0 800px;
+    flex: 1 1 800px;
     overflow-y: auto;
 }
 
@@ -105,6 +105,7 @@
 }
 
 .cart__item_price {
+    white-space: nowrap;
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
@@ -169,32 +170,37 @@
 
 .cart__buttons {
     display: flex;
-    justify-content: space-between;
-}
-
-.cart__button {
-    background: #ffffff;
+    gap: 20px;
 }
 
 .cart__button_pay {
+    display: block;
+    width: 50%;
     cursor: pointer;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 30px;
-    letter-spacing: 0.06em;
-    color: #ffffff;
-    padding: 15px 145px;
+    padding: 15px 0;
     background: #282828;
     border: 1px solid #282828;
     border-radius: 80px;
 }
 
-.cart__button_pay:hover {
+.cart__button_pay a {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 0.06em;
+    color: #ffffff;
+}
+
+.cart__button_pay:hover a {
     color: #282828;
+}
+
+.cart__button_pay:hover {
     background: #ffffff;
 }
 
 .cart__button_continue {
+    display: block;
     cursor: pointer;
     font-weight: 500;
     font-size: 18px;
@@ -203,7 +209,8 @@
     text-transform: uppercase;
     color: #282828;
     background: #ffffff;
-    padding: 15px 85px;
+    padding: 15px 0;
+    width: 50%;
     border: 1px solid #282828;
     border-radius: 80px;
 }
@@ -221,4 +228,50 @@
 
 .cart__footer {
     margin-top: 20px;
+}
+
+@media (max-width: 1000px) {
+    .cart__buttons {
+        flex-direction: column;
+    }
+    .cart__button_pay {
+        width: 100%;
+    }
+
+    .cart__button_continue {
+        width: 100%;
+    }
+}
+
+@media (max-width: 780px) {
+    .cart {
+        width: 70%;
+    }
+}
+
+@media (max-width: 700px) {
+    .cart__title {
+        font-size: 30px;
+    }
+    .cart__item_name {
+        font-size: 14px;
+    }
+    .cart__item_price {
+        font-size: 16px;
+    }
+    .cart__item_quantity {
+        padding: 0px 12px;
+        width: 64px;
+        height: 24px;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 500px) {
+    .cart__title {
+        font-size: 26px;
+    }
+    .cart {
+        width: 100%;
+    }
 }

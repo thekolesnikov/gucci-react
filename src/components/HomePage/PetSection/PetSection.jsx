@@ -9,7 +9,7 @@ function PetSection() {
             <div className={styles.pets}>
                 <div className={styles.pets__description}>
                     <div className={styles.pets__description_title}>
-                        Gucci pet colleaction
+                        Gucci pet collection
                     </div>
                     <div className={styles.pets__description_text}>
                         Uncovering ever-surprising ways that the House’s codes
@@ -21,8 +21,12 @@ function PetSection() {
                     <ShowMore />
                 </div>
                 <div className={styles.pets__images}>
-                    <img src={image1} alt="Pet" />
-                    <img src={image2} alt="Pet" />
+                    <div>
+                        <img src={image1} alt="Pet" />
+                    </div>
+                    <div>
+                        <img src={image2} alt="Pet" />
+                    </div>
                 </div>
             </div>
         </section>

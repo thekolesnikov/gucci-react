@@ -35,6 +35,26 @@
     gap: 20px;
 }
 
+.arrivals__swiper {
+    display: none;
+}
+
+@media (max-width: 780px) {
+    .arrivals__items {
+        display: none;
+    }
+    .arrivals__swiper {
+        display: block;
+    }
+
+    .swiper__slide {
+        width: auto;
+    }
+    .swiper_scrollbar {
+        display: none;
+    }
+}
+
 @media (max-width: 700px) {
     .arrivals {
         margin-bottom: 60px;

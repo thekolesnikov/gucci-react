@@ -32,7 +32,7 @@
 .blue__images {
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
+    gap: 20px;
 }
 
 .blue__showmore {
@@ -42,9 +42,50 @@
 }
 
 .blue__image_big img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     transition: all 0.5s ease;
 }
 
 .blue__image_big:hover img {
     transform: scale(1.03);
+}
+
+@media (max-width: 700px) {
+    .blue {
+        margin-bottom: 60px;
+    }
+    .blue__text {
+        font-size: 30px;
+    }
+
+    .blue__link {
+        font-size: 16px;
+    }
+
+    .blue__showmore a img {
+        height: 90px;
+        width: 90px;
+    }
+}
+
+@media (max-width: 500px) {
+    .blue__text {
+        font-size: 26px;
+    }
+
+    .blue__link {
+        font-size: 14px;
+    }
+
+    .blue__showmore a {
+        display: none;
+    }
+}
+
+@media (max-width: 400px) {
+    .blue__images div:nth-child(3) {
+        display: none;
+    }
 }

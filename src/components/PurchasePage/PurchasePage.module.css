@@ -8,6 +8,11 @@
     margin-bottom: 180px;
 }
 
+.purchase__leftside {
+    padding-right: 20px;
+    flex: 0 1 902px;
+}
+
 .purchase__details_title {
     margin-top: 50px;
     margin-bottom: 30px;
@@ -82,6 +87,7 @@
     text-transform: capitalize;
     color: #000000;
     border: 1px solid #282828;
+    vertical-align: middle;
 }
 
 .payment__method_paypal {
@@ -106,12 +112,8 @@
     border-bottom: 1px solid #7a7a7a;
 }
 
-.cart__item {
-    padding-top: 20px;
-}
-
 .cart__item:not(:last-child) {
-    padding-bottom: 20px;
+    padding-bottom: 40px;
 }
 
 .cart__item_body {
@@ -229,7 +231,8 @@
 .payment__button {
     margin: 20px 0;
     cursor: pointer;
-    padding: 15px 148px;
+    padding: 15px 0;
+    width: 41%;
     font-weight: 500;
     font-size: 18px;
     line-height: 30px;
@@ -250,7 +253,8 @@
 .payment__button_inactive {
     margin: 20px 0;
     cursor: pointer;
-    padding: 15px 148px;
+    padding: 15px 0px;
+    width: 41%;
     font-weight: 500;
     font-size: 18px;
     line-height: 30px;
@@ -268,7 +272,7 @@
 }
 
 .purchase__checkout {
-    flex: 0 1 520px;
+    flex: 0 0 520px;
 }
 
 .purchase__total {
@@ -301,4 +305,66 @@
 .purchase__paypal {
     font-weight: 600;
     font-size: 18px;
+}
+
+@media (max-width: 1640px) {
+    .purchase__inputs {
+        grid-template-columns: 41% 56%;
+    }
+    .payment__method_card {
+        width: 100%;
+        padding: 12px 0;
+        flex: 0 1 41%;
+    }
+
+    .payment__method_paypal {
+        width: 100%;
+        padding: 12px 0;
+        flex: 0 1 58.3%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .purchase__checkout {
+        flex: 0 1 520px;
+    }
+}
+
+@media (max-width: 900px) {
+    .purchase__checkout {
+        flex: 0 1 520px;
+    }
+    .purchase__page {
+        flex-direction: column;
+    }
+    .purchase__leftside {
+        order: 2;
+    }
+    .purchase__checkout {
+        order: 1;
+    }
+    .purchase__leftside {
+        flex: 0 1 600px;
+    }
+}
+
+@media (max-width: 700px) {
+    .purchase__details_title {
+        font-size: 30px;
+    }
+    .cart__item_name {
+        font-size: 14px;
+    }
+    .cart__item_price {
+        font-size: 16px;
+    }
+    .purchase__page {
+        margin-bottom: 60px;
+    }
+}
+
+@media (max-width: 700px) {
+    .payment__button {
+        width: 100%;
+    }
 }

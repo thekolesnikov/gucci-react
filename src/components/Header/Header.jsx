@@ -182,6 +182,7 @@ function Header() {
                         <button
                             onClick={() => {
                                 modal.setModalActive(true);
+                                setburgerActive(false);
                                 document.body.classList.add('hidden');
                             }}
                             className={styles.header__cart}

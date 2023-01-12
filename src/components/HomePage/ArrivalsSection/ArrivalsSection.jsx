@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './ArrivalsSection.module.css';
+import SwiperArrivals from './SwiperArrivals';
 
 import OneItem from '../../OneItem/OneItem';
 
@@ -48,6 +49,9 @@ function ArrivalsSection() {
                         name="Men's 'GGH T-Shirt"
                         price="270"
                     />
+                </div>
+                <div className={styles.arrivals__swiper}>
+                    <SwiperArrivals />
                 </div>
             </div>
         </section>
