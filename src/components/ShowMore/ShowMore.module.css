@@ -1,7 +1,0 @@
-.showmore:hover img {
-    transform: scale(1.03);
-}
-
-.showmore img {
-    transition: all 0.3s ease;
-}
