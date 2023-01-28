@@ -44,7 +44,7 @@ function Bestsellers() {
                         />
                     </div>
                     <Link
-                        to={`/shoes/54`}
+                        to={`/gucci-react/shoes/54`}
                         className={styles.bestsellers__bigimg}
                     >
                         <img src={bigImage} alt="bigImage" />
