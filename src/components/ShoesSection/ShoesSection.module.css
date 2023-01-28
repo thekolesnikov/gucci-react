@@ -1,0 +1,310 @@
+.section__title {
+    text-align: center;
+    max-width: none;
+    padding: 70px 0;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 60px;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.section__filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section__filter_left {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.section__filter {
+    padding: 20px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.section__filter_name {
+    cursor: pointer;
+}
+
+.section__filter_name span {
+    font-weight: 600;
+}
+
+.section__filter_arrow {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.section__filter_arrow_rotate {
+    transition: all 0.3s ease;
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+
+.section__filter_categories {
+    background-color: #ffffff;
+    position: absolute;
+    top: 55px;
+    left: 0;
+    z-index: 50;
+    width: 240px;
+    padding: 15px;
+    z-index: 100;
+}
+
+.section__filter_categories_sort {
+    background-color: #ffffff;
+    position: absolute;
+    top: 55px;
+    left: -33px;
+    z-index: 50;
+    width: 160px;
+    padding: 15px;
+    z-index: 100;
+}
+
+.section__filter_size {
+    background-color: #ffffff;
+    position: absolute;
+    top: 55px;
+    left: -5px;
+    z-index: 200;
+    width: 110px;
+    padding: 15px;
+}
+
+.section__filter_colors {
+    background-color: #ffffff;
+    position: absolute;
+    top: 55px;
+    left: -5px;
+    z-index: 50;
+    width: 125px;
+    padding: 15px;
+    z-index: 100;
+}
+
+.section__filter_category {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.section__filter_button_active {
+    width: 17px;
+    height: 17px;
+    background-color: #000000;
+    background-image: url('../../img/Vector.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 1px solid #000000;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.section__filter_button {
+    width: 17px;
+    height: 17px;
+    border: 1px solid #b0b0b0;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.showmore__button {
+    cursor: pointer;
+    display: block;
+    margin: 50px auto 100px;
+    padding: 10px 20px;
+    background: #282828;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #ffffff;
+    border: 1px solid #282828;
+}
+
+.showmore__button:hover {
+    color: #282828;
+    background-color: #ffffff;
+    border: 1px solid #282828;
+}
+
+.section__items {
+    position: relative;
+}
+
+.section__img1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 50;
+}
+
+.section__img2 {
+    position: absolute;
+    bottom: 539px;
+    left: 0;
+    z-index: 50;
+}
+
+.section__row_items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 40px 20px;
+}
+
+.section__filter_left_mobile {
+    display: none;
+}
+
+@media (max-width: 1100px) {
+    .showmore__button {
+        margin: 30px auto 60px;
+    }
+}
+
+@media (max-width: 640px) {
+    .section__title {
+        padding: 50px 0;
+        font-size: 25px;
+        line-height: 120%;
+    }
+
+    .section__filters {
+        padding: 15px 0;
+    }
+
+    .section__filter {
+        padding: 0;
+    }
+
+    .section__filter_name {
+        font-size: 15px;
+        line-height: 18px;
+    }
+
+    .section__row_items {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px 15px;
+    }
+    .showmore__button {
+        margin: 30px auto;
+    }
+    .section__filter_categories {
+        position: absolute;
+        top: 33px;
+        width: 200px;
+        padding: 10px;
+    }
+    .section__filter_type {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 17px;
+    }
+    .section__filter_size {
+        top: 33px;
+        width: 70px;
+        padding: 10px;
+    }
+    .section__filter_colors {
+        top: 33px;
+        width: 100px;
+        padding: 10px;
+    }
+    .section__filter_categories_sort {
+        top: 33px;
+        left: -18px;
+        z-index: 200;
+        width: 120px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 570px) {
+    .section__filter_left {
+        gap: 25px;
+    }
+}
+
+@media (max-width: 500px) {
+    .section__filter_left {
+        display: none;
+    }
+    .section__filter_left_mobile_background {
+        position: fixed;
+        z-index: 600;
+        background: rgba(0, 0, 0, 0.3);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .section__filter_left_mobile {
+        display: block;
+    }
+    .section__filter_left_mobile_open {
+        background-color: #ffffff;
+        padding: 30px 10px;
+    }
+
+    .section__filter_category {
+        gap: 10px;
+    }
+
+    .section__filter_category_mobile_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .section__filter_category_mobile_header button {
+        background-color: #ffffff;
+    }
+
+    .section__filter_category_mobile_header button img {
+        cursor: pointer;
+    }
+
+    .section__filter_category_mobile_title {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 18px;
+        color: #000000;
+        margin-bottom: 10px;
+    }
+    .section__filter_category_mobile_body_size {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        column-gap: 15px;
+    }
+    .section__filter_category_mobile_body_colors {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 15px;
+    }
+}
+
+@media (max-width: 380px) {
+    .section__title {
+        padding: 30px 0;
+    }
+    .section__row_items {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 10px;
+    }
+    .showmore__button {
+        padding: 10px auto;
+        width: 100%;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+    }
+}
