@@ -12,6 +12,7 @@ import burgerArrow from './img/burgerArrow.svg';
 import cartImg from './img/cart.svg';
 import user from './img/user.svg';
 import google from './img/google.svg';
+import spinner from './img/spinner.gif';
 import styles from './Header.module.css';
 import { useModal } from '../Context/CartPreviewProvider';
 import { useCart } from '../Context/CartProvider';
@@ -72,6 +73,7 @@ function Header() {
 
     function registerUser(email, password, password2) {
         if (password !== password2) {
+            setLoginSpinner(false);
             setAlertPassword("Passwords don't matches");
             return;
         }
@@ -83,13 +85,14 @@ function Header() {
                         id: user.uid,
                     })
                 );
+                setLoginSpinner(false);
                 setOpenModal(false);
                 setEmail('');
                 setPassword('');
                 setPassword2('');
             })
             .catch((error) => {
-                console.log(error.code);
+                setLoginSpinner(false);
                 if (error.code === 'auth/email-already-in-use') {
                     setAlertEmail(
                         'This email is already registered in our system!'
@@ -97,6 +100,8 @@ function Header() {
                 }
             });
     }
+
+    const [loginSpinner, setLoginSpinner] = useState(false);
 
     function loginUser(email, password) {
         signInWithEmailAndPassword(auth, email, password)
@@ -107,12 +112,14 @@ function Header() {
                         id: user.uid,
                     })
                 );
+                setLoginSpinner(false);
                 setOpenModal(false);
                 setEmail('');
                 setPassword('');
                 setPassword2('');
             })
             .catch((error) => {
+                setLoginSpinner(false);
                 if (error.code === 'auth/user-not-found') {
                     setAlertEmail('User not found');
                 } else if (error.code === 'auth/wrong-password') {
@@ -137,11 +144,11 @@ function Header() {
                         id: user.uid,
                     })
                 );
+                setLoginSpinner(false);
                 setOpenModal(false);
             })
             .catch((error) => {
-                const errorCode = error.code;
-                console.log(errorCode);
+                setLoginSpinner(false);
             });
     }
 
@@ -151,9 +158,7 @@ function Header() {
     const [recoveryEmail, setRecoveryEmail] = useState(false);
     function sendPasswordRecovery(auth, email) {
         sendPasswordResetEmail(auth, email)
-            .then(() => {
-                console.log('Password has been sent');
-            })
+            .then(() => {})
             .catch((error) => {
                 const errorCode = error.code;
             });
@@ -1568,6 +1573,11 @@ function Header() {
                     onClick={(e) => e.stopPropagation()}
                     className={styles.cart__user_modal}
                 >
+                    {loginSpinner && (
+                        <div className={styles.spinner}>
+                            <img src={spinner} alt="" />
+                        </div>
+                    )}
                     <button
                         onClick={() => {
                             setOpenModal(false);
@@ -1679,7 +1689,16 @@ function Header() {
                                         />
                                     </div>
 
-                                    <button className={styles.cart__user_login}>
+                                    <button
+                                        disabled={loginSpinner && true}
+                                        onClick={() => setLoginSpinner(true)}
+                                        className={cn(
+                                            styles.cart__user_login,
+                                            loginSpinner
+                                                ? styles.button__disabled
+                                                : ''
+                                        )}
+                                    >
                                         Sign Up
                                     </button>
                                 </form>
@@ -1735,7 +1754,9 @@ function Header() {
                                                 type="password"
                                             />
                                         </span>
+
                                         <button
+                                            disabled={loginSpinner && true}
                                             onClick={(e) => {
                                                 e.preventDefault();
                                                 setEmailForgotModal(true);
@@ -1743,22 +1764,33 @@ function Header() {
                                                 setEmail('');
                                                 setPassword('');
                                             }}
-                                            className={
-                                                styles.cart__user_forgot_btn
-                                            }
+                                            className={cn(
+                                                styles.cart__user_forgot_btn,
+                                                loginSpinner
+                                                    ? styles.button__disabled
+                                                    : ''
+                                            )}
                                         >
                                             Forgot password?
                                         </button>
                                     </div>
+
                                     <button
+                                        disabled={loginSpinner && true}
                                         onClick={(e) => {
+                                            setLoginSpinner(true);
                                             e.preventDefault();
                                             validateEmail(e);
                                             dispatch(
                                                 loginUser(email, password)
                                             );
                                         }}
-                                        className={styles.cart__user_login}
+                                        className={cn(
+                                            styles.cart__user_login,
+                                            loginSpinner
+                                                ? styles.button__disabled
+                                                : ''
+                                        )}
                                     >
                                         Log in
                                     </button>
@@ -1766,6 +1798,7 @@ function Header() {
                             )}
                             {signUp ? (
                                 <button
+                                    disabled={loginSpinner && true}
                                     onClick={() => {
                                         setEmail('');
                                         setPassword('');
@@ -1774,13 +1807,19 @@ function Header() {
                                         setAlertEmail('');
                                         setAlertPassword('');
                                     }}
-                                    className={styles.cart__user_goback}
+                                    className={cn(
+                                        styles.cart__user_goback,
+                                        loginSpinner
+                                            ? styles.button__disabled
+                                            : ''
+                                    )}
                                 >
                                     Back to login page
                                 </button>
                             ) : (
                                 <>
                                     <button
+                                        disabled={loginSpinner && true}
                                         onClick={() => {
                                             setSignUp(true);
                                             setEmail('');
@@ -1790,7 +1829,10 @@ function Header() {
                                         }}
                                         className={cn(
                                             styles.cart__user_login,
-                                            styles.cart__user_login_last
+                                            styles.cart__user_login_last,
+                                            loginSpinner
+                                                ? styles.button__disabled
+                                                : ''
                                         )}
                                     >
                                         Sign Up
@@ -1798,15 +1840,20 @@ function Header() {
                                     <div className={styles.cart__login_more}>
                                         <p>Log in using socials:</p>
                                         <button
-                                            onClick={() =>
+                                            disabled={loginSpinner && true}
+                                            onClick={() => {
+                                                setLoginSpinner(true);
                                                 loginWithGoogle(
                                                     auth,
                                                     googleProvider
-                                                )
-                                            }
-                                            className={
-                                                styles.cart__login_google
-                                            }
+                                                );
+                                            }}
+                                            className={cn(
+                                                styles.cart__login_google,
+                                                loginSpinner
+                                                    ? styles.button__disabled
+                                                    : ''
+                                            )}
                                         >
                                             <img src={google} alt="Google" />
                                         </button>
@@ -1873,6 +1920,7 @@ function Header() {
                     )}
                 </div>
             </div>
+
             {recoveryEmail ? (
                 <UniversalCartBadge
                     text="Password recovery email has been sent. Please, check your mailbox."

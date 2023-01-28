@@ -317,6 +317,17 @@ header {
     left: 0;
 }
 
+.spinner {
+    position: absolute;
+    top: 20%;
+    left: 183px;
+    z-index: 700;
+}
+
+.button__disabled {
+    cursor: not-allowed;
+}
+
 @media (max-width: 1300px) {
     .header__categories {
         gap: 25px;
