@@ -39,7 +39,12 @@ export default () => {
         >
             <SwiperSlide className={styles.swiper__slide}>
                 <Link to="/gucci-react/shoes/57">
-                    <img className={styles.swiper__img} src={image1} alt="" />
+                    <img
+                        loading="lazy"
+                        className={styles.swiper__img}
+                        src={image1}
+                        alt=""
+                    />
                 </Link>
                 <div className={styles.item_description}>
                     <p className={styles.item_name}>
@@ -50,7 +55,12 @@ export default () => {
             </SwiperSlide>
             <SwiperSlide className={styles.swiper__slide}>
                 <Link to="/gucci-react/shoes/58">
-                    <img className={styles.swiper__img} src={image2} alt="" />
+                    <img
+                        loading="lazy"
+                        className={styles.swiper__img}
+                        src={image2}
+                        alt=""
+                    />
                 </Link>
                 <div className={styles.item_description}>
                     <p className={styles.item_name}>
@@ -61,7 +71,12 @@ export default () => {
             </SwiperSlide>
             <SwiperSlide className={styles.swiper__slide}>
                 <Link to="/gucci-react/shoes/56">
-                    <img className={styles.swiper__img} src={image3} alt="" />
+                    <img
+                        loading="lazy"
+                        className={styles.swiper__img}
+                        src={image3}
+                        alt=""
+                    />
                 </Link>
                 <div className={styles.item_description}>
                     <p className={styles.item_name}>

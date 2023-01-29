@@ -46,12 +46,39 @@
 .bestsellers__bigimg img {
     width: 100%;
     height: 100%;
+    min-width: 770px;
+    min-height: 1018px;
     object-fit: cover;
     transition: all 0.5s ease;
 }
 
+.bestsellers__bigimg span {
+    height: 100%;
+}
+
 .bestsellers__bigimg:hover img {
     transform: scale(1.03);
+}
+
+@media (max-width: 1670px) {
+    .bestsellers__bigimg img {
+        min-width: 565px;
+        min-height: 763px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .bestsellers__bigimg img {
+        min-width: 415px;
+        min-height: 617px;
+    }
+}
+
+@media (max-width: 900px) {
+    .bestsellers__bigimg img {
+        min-width: 210px;
+        min-height: 370px;
+    }
 }
 
 @media (max-width: 700px) {
@@ -72,5 +99,9 @@
     }
     .bestsellers__text {
         font-size: 26px;
+    }
+    .bestsellers__bigimg img {
+        min-width: 150px;
+        min-height: 350px;
     }
 }

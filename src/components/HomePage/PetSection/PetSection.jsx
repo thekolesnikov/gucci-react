@@ -22,10 +22,10 @@ function PetSection() {
                 </div>
                 <div className={styles.pets__images}>
                     <div>
-                        <img src={image1} alt="Pet" />
+                        <img src={image1} loading="lazy" alt="Pet" />
                     </div>
                     <div>
-                        <img src={image2} alt="Pet" />
+                        <img src={image2} loading="lazy" alt="Pet" />
                     </div>
                 </div>
             </div>

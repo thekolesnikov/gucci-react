@@ -25,7 +25,7 @@ function BlueSection() {
                         to="/gucci-react/shoes/59"
                         className={styles.blue__image_big}
                     >
-                        <img src={imageBig} alt="BigImage" />
+                        <img loading="lazy" src={imageBig} alt="BigImage" />
                     </Link>
                     <OneItem
                         id="59"
